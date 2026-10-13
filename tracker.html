@@ -111,6 +111,43 @@
                     </div>
                 </form>
             </section>
+
+            <!-- Fish cards will be dynamically loaded and filtered into this section with the main JS script file -->
+            <section id="cardList">
+            </section>
+
+            <!-- Main pop-up dialog box for showing the user more details on the fish they've selected on the page. -->
+            <div class="fish-popup">
+                <div>
+                    <img src="" alt="">
+                    <div>
+                        <h4>Fish Name</h4>
+                        <p>Fish Description</p>
+                    </div>
+                </div>
+
+                <button>Toggle Catch Status</button>
+
+                <div>
+                    <h5>Location(s):</h5>
+                    <ul id="locationList"></ul>
+                </div>
+
+                <div>
+                    <h5>Time(s):</h5>
+                    <ul id="timeList"></ul>
+                </div>
+
+                <div>
+                    <h5>Season(s):</h5>
+                    <ul id="seasonList"></ul>
+                </div>
+
+                <div>
+                    <h5>Weather:</h5>
+                    <ul id="weatherList"></ul>
+                </div>
+            </div>
         </main>
 
         <footer>
