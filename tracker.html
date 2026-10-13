@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="author" content="George Poelcher III">
+        <meta name="description" content="Track your progress, see key fish details and filter by traits in Pelican.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta charset="utf-8">
+
+        <!-- TO DO: LINKS AND RELEVANT META TAGS -->
+        <link rel="canonical" href="">
+
+        <!-- OPEN GRAPH CARD INFORMATION -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="">
+        <meta property="og:title" content="">
+        <meta property="og:description" content="">
+        <meta property="og:image" content="https://example.com">
+
+        <!-- Twitter Card Snippets -->
+        <meta name="twitter:card" content="">
+        <meta name="twitter:url" content="">
+        <meta name="twitter:title" content="">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="">
+
+        <!-- Main stylesheet -->
+        <link rel="stylesheet" href="">
+
+         <!-- Main script -->
+          <script src="" defer></script>
+
+        <title>Fishing Tracker - Pelican</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Pelican</h1>
+            <!-- Logo will go here -->
+            <img src="" alt="">
+
+            <!-- For light/dark mode -->
+             <nav>
+                <ul>
+                    <li><button class="theme-toggle"></button></li>
+                    <li><a href="#">Go Fishing</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+             </nav>
+        </header>
+
+        <main>
+            <h2>Fishing Tracker</h2>
+
+            <section id="filters">
+                <form action="#">
+                    <div>
+                        <p>Progress</p>
+                        <p>0/72 Fish Caught</p>
+                    </div>
+
+                    <div>
+                        <fieldset>
+                            <legend>Catch Status</legend>
+
+                            <div>
+                                <input type="radio" name="caught" id="true" value="true">
+                                <label for="true">Caught</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" name="caught" id="false" value="false">
+                                <label for="false">Uncaught</label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div>
+                        <fieldset>
+                            <legend>Trait Filters</legend>
+
+                            <!-- TO-DO: COMPLETE LIST OF LOCATIONS TO FILTER FROM -->
+                            <div>
+                                <label for="location">Location</label>
+                                <select name="location" id="location">
+                                    <option value="all">Anywhere</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="season">Season</label>
+                                <select name="season" id="season">
+                                    <option value="all">Yearly</option>
+                                    <option value="spring">Spring</option>
+                                    <option value="summer">Summer</option>
+                                    <option value="fall">Fall</option>
+                                    <option value="winter">Winter</option>
+                                </select>
+                            </div>
+
+                            <!-- TO-DO: COMPLETE LIST OF WEATHER CONDITIONS TO FILTER FROM -->
+                            <div>
+                                <label for="weather">Weather Condition</label>
+                                <select name="weather" id="weather">
+                                    <option value="all">Any</option>
+                                    <option value="sunny">Sunny</option>
+                                </select>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>Copyright &copy; 2026 Pelican</p>
+            <p>Pelican is a fan-made web application for Stardew Valley. All game content belongs to ConcernedApe.</p>
+        </footer>
+    </body>
+</html>
