@@ -1,0 +1,517 @@
+{
+    "fish": [
+        {
+            "name": "Pufferfish",
+            "description": "Inflates when threatened.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["12pm - 4pm"],
+            "season": ["Summer"],
+            "weather": ["Sunny"],
+            "difficulty": "80 Floater"
+        },
+
+        {
+            "name": "Anchovy",
+            "description": "A small silver fish found in the ocean.",
+            "location": ["Ocean"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Fall"],
+            "weather": ["Any"],
+            "difficulty": "30 Dart"
+        },
+
+        {
+            "name": "Tuna",
+            "description": "A large fish that lives in the ocean.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["6am - 7pm"],
+            "season": ["Summer", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "70 Smooth"
+        },
+
+        {
+            "name": "Sardine",
+            "description": "A common ocean fish.",
+            "location": ["Ocean"],
+            "time": ["6am - 7pm"],
+            "season": ["Spring", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "30 Dart"
+        },
+
+        {
+            "name": "Bream",
+            "description": "A fairly common river fish that becomes active at night.",
+            "location": ["River"],
+            "time": ["6pm - 2am"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "35 Smooth"
+        },
+        
+        {
+            "name": "Largemouth Bass",
+            "description": "A popular fish that lives in lakes.",
+            "location": ["Lake"],
+            "time": ["6am - 7pm"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "50 Mixed"
+        },
+
+        {
+            "name": "Smallmouth Bass",
+            "description": "A freshwater fish that is very sensitive to pollution.",
+            "location": ["River", "Pond"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Fall"],
+            "weather": ["Any"],
+            "difficulty": "28 Mixed"
+        },
+
+        {
+            "name": "Rainbow Trout",
+            "description": "A freshwater trout with colorful markings.",
+            "location": ["River", "Lake"],
+            "time": ["6am - 7pm"],
+            "season": ["Summer"],
+            "weather": ["Sunny"],
+            "difficulty": "45 Mixed"
+        },
+
+        {
+            "name": "Salmon",
+            "description": "Swims upstream to lay its eggs.",
+            "location": ["River", "Waterfalls"],
+            "time": ["6am - 7pm"],
+            "season": ["Fall"],
+            "weather": ["Any"],
+            "difficulty": "50 Mixed"
+        },
+
+        {
+            "name": "Walleye",
+            "description": "A freshwater fish caught at night.",
+            "location": ["River", "Pond", "Lake"],
+            "time": ["12pm - 2am"],
+            "season": ["Fall", "Winter"],
+            "weather": ["Rain"],
+            "difficulty": "45 Smooth"
+        },
+
+        {
+            "name": "Perch",
+            "description": "A freshwater fish of the winter.",
+            "location": ["River", "Pond", "Lake"],
+            "time": ["Anytime"],
+            "season": ["Winter"],
+            "weather": ["Any"],
+            "difficulty": "35 Dart"
+        },
+
+        {
+            "name": "Carp",
+            "description": "A common pond fish.",
+            "location": ["Lake", "Secret Woods", "Sewers", "Mutant Bug Lair"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "15 Mixed"
+        },
+
+        {
+            "name": "Catfish",
+            "description": "An uncommon fish found in streams.",
+            "location": ["River", "Secret Woods", "Witch's Swamp"],
+            "time": ["6am - 12pm"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Rain"],
+            "difficulty": "75 Mixed"
+        },
+
+        {
+            "name": "Pike",
+            "description": "A freshwater fish that's difficult to catch.",
+            "location": ["River", "Pond"],
+            "time": ["Anytime"],
+            "season": ["Summer", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "60 Dart"
+        },
+
+        {
+            "name": "Sunfish",
+            "description": "A common river fish.",
+            "location": ["River"],
+            "time": ["6am - 7pm"],
+            "season": ["Spring", "Summer"],
+            "weather": ["Sunny", "Windy"],
+            "difficulty": "30 Mixed"
+        },
+
+        {
+            "name": "Red Mullet",
+            "description": "Long ago these were kept as pets.",
+            "location": ["Ocean"],
+            "time": ["6am - 7pm"],
+            "season": ["Summer", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "55 Smooth"
+        },
+
+        {
+            "name": "Herring",
+            "description": "A common ocean fish.",
+            "location": ["Ocean"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "25 Dart"
+        },
+
+        {
+            "name": "Eel",
+            "description": "A long, slippery little fish.",
+            "location": ["Ocean"],
+            "time": ["4pm - 2am"],
+            "season": ["Spring", "Fall"],
+            "weather": ["Rain"],
+            "difficulty": "70 Smooth"
+        },
+
+        {
+            "name": "Octopus",
+            "description": "A mysterious and intelligent creature.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["6am - 1pm"],
+            "season": ["Summer"],
+            "weather": ["Any"],
+            "difficulty": "95 Sinker"
+        },
+
+        {
+            "name": "Red Snapper",
+            "description": "A popular fish with a nice red color.",
+            "location": ["Ocean"],
+            "time": ["6am - 7pm"],
+            "season": ["Summer", "Fall", "Winter"],
+            "weather": ["Rain"],
+            "difficulty": "40 Mixed"
+        },
+
+        {
+            "name": "Squid",
+            "description": "A deep sea creature that can grow to enormous size.",
+            "location": ["Ocean"],
+            "time": ["6pm - 2am"],
+            "season": ["Winter"],
+            "weather": ["Any"],
+            "difficulty": "75 Sinker"
+        },
+
+        {
+            "name": "Sea Cucumber",
+            "description": "A slippery, slimy creature found on the ocean floor.",
+            "location": ["Ocean"],
+            "time": ["6am - 7pm"],
+            "season": ["Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "40 Sinker"
+        },
+
+        {
+            "name": "Super Cucumber",
+            "description": "A rare, purple variety of sea cucumber.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["6pm - 2am"],
+            "season": ["Summer", "Fall"],
+            "weather": ["Any"],
+            "difficulty": "80 Sinker"
+        },
+
+        {
+            "name": "Ghostfish",
+            "description": "A pale, blind fish found in underground lakes.",
+            "location": ["Mines (Floor 20)", "Mines (Floor 60)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "50 Mixed"
+        },
+
+        {
+            "name": "Stonefish",
+            "description": "A bizarre fish that's shaped like a brick.",
+            "location": ["Mines (Floor 20)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "65 Sinker"
+        },
+
+        {
+            "name": "Ice Pip",
+            "description": "A rare fish that thrives in extremely cold conditions.",
+            "location": ["Mines (Floor 60)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "85 Dart"
+        },
+
+        {
+            "name": "Lava Eel",
+            "description": "It can somehow survive in pools of red-hot lava.",
+            "location": ["Mines (Floor 100)", "Volcano Caldera"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "90 Mixed"
+        },
+
+        {
+            "name": "Sandfish",
+            "description": "It tries to hide using camouflage.",
+            "location": ["Desert"],
+            "time": ["6am - 8pm"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "65 Mixed"
+        },
+
+        {
+            "name": "Scorpion Carp",
+            "description": "It tries to hide using camouflage.",
+            "location": ["Desert"],
+            "time": ["6am - 8pm"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "90 Dart"
+        },
+
+        {
+            "name": "Flounder",
+            "description": "It lives on the bottom, so both eyes are on top of its head.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["6am - 8pm"],
+            "season": ["Spring", "Summer"],
+            "weather": ["Any"],
+            "difficulty": "50 Sinker"
+        },
+
+        {
+            "name": "Midnight Carp",
+            "description": "This shy fish only feels comfortable at night.",
+            "location": ["Pond", "Lake", "Ginger Island (River)"],
+            "time": ["10pm - 2am"],
+            "season": ["Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "55 Mixed"
+        },
+
+        {
+            "name": "Sturgeon",
+            "description": "An ancient bottom-feeder with a dwindling population. Females can live up to 150 years.",
+            "location": ["Lake"],
+            "time": ["6am - 7pm"],
+            "season": ["Summer", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "78 Mixed"
+        },
+
+        {
+            "name": "Tiger Trout",
+            "description": "A rare hybrid trout that cannot bear offspring of its own.",
+            "location": ["River"],
+            "time": ["6am - 7pm"],
+            "season": ["Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "60 Dart"
+        },
+
+        {
+            "name": "Bullhead",
+            "description": "A relative of the catfish that eats a variety of foods off the lake bottom.",
+            "location": ["Lake"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "46 Smooth"
+        },
+
+        {
+            "name": "Tilapia",
+            "description": "A primarily vegetarian fish that prefers warm water.",
+            "location": ["Ocean", "Ginger Island (River)"],
+            "time": ["6am - 2pm"],
+            "season": ["Summer", "Fall"],
+            "weather": ["Any"],
+            "difficulty": "50 Mixed"
+        },
+
+        {
+            "name": "Chub",
+            "description": "A common freshwater fish known for its voracious appetite.",
+            "location": ["River", "Lake"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "35 Dart"
+        },
+
+        {
+            "name": "Dorado",
+            "description": "A fierce carnivore with brilliant orange scales.",
+            "location": ["River"],
+            "time": ["6am - 7pm"],
+            "season": ["Summer"],
+            "weather": ["Any"],
+            "difficulty": "78 Mixed"
+        },
+
+        {
+            "name": "Albacore",
+            "description": "Prefers temperature \"edges\" where cool and warm water meet.",
+            "location": ["Ocean"],
+            "time": ["6am - 11am", "6pm - 2am"],
+            "season": ["Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "60 Mixed"
+        },
+
+        {
+            "name": "Shad",
+            "description": "Lives in a school at sea, but returns to the rivers to spawn.",
+            "location": ["River"],
+            "time": ["9am - 2am"],
+            "season": ["Spring", "Summer", "Fall"],
+            "weather": ["Rain"],
+            "difficulty": "45 Smooth"
+        },
+
+        {
+            "name": "Lingcod",
+            "description": "A fearsome predator that will eat almost anything it can cram into its mouth.",
+            "location": ["River", "Lake"],
+            "time": ["Anytime"],
+            "season": ["Winter"],
+            "weather": ["Any"],
+            "difficulty": "85 Mixed"
+        },
+
+        {
+            "name": "Halibut",
+            "description": "A flat fish that lives on the ocean floor.",
+            "location": ["Ocean"],
+            "time": ["6am - 11am", "7pm - 2am"],
+            "season": ["Spring", "Summer", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "50 Sinker"
+        },
+
+        {
+            "name": "Woodskip",
+            "description": "A very sensitive fish that can only live in pools deep in the forest.",
+            "location": ["Secret Woods", "Forest Farm"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "50 Mixed"
+        },
+
+        {
+            "name": "Void Salmon",
+            "description": "A salmon, twisted by void energy. The fresh meat is jet black, but rapidly turns pink when exposed to air.",
+            "location": ["Witch's Swamp"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "80 Mixed"
+        },
+
+        {
+            "name": "Slimejack",
+            "description": "He's coated in a very thick layer of slime. He keeps slipping out of your hands!",
+            "location": ["Mutant Bug Lair"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "55 Dart"
+        },
+
+        {
+            "name": "Stingray",
+            "description": "Despite having a toxic stinger, these fish are shy and prefer to avoid humans.",
+            "location": ["Ginger Island (Pirate Cove)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "80 Sinker"
+        },
+
+        {
+            "name": "Lionfish",
+            "description": "An aggressive, predatory fish with venomous spines.",
+            "location": ["Ginger Island (Ocean)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "50 Smooth"
+        },
+
+        {
+            "name": "Blue Discus",
+            "description": "A brightly colored tropical fish that is popular in aquariums.",
+            "location": ["Ginger Island (River)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "60 Dart"
+        },
+
+        {
+            "name": "Goby",
+            "description": "Some types of Gobies can climb up waterfalls.",
+            "location": ["Waterfalls"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "55 Dart"
+        },
+
+        {
+            "name": "Midnight Squid",
+            "description": "A strange and mysterious denizen of the ocean's twilight depths.",
+            "location": ["Night Market (Submarine)"],
+            "time": ["5pm - 2am"],
+            "season": ["Winter"],
+            "weather": ["Any"],
+            "difficulty": "55 Sinker"
+        },
+
+        {
+            "name": "Spook Fish",
+            "description": "The huge eyes can detect the faint silhouettes of prey.",
+            "location": ["Night Market (Submarine)"],
+            "time": ["5pm - 2am"],
+            "season": ["Winter"],
+            "weather": ["Any"],
+            "difficulty": "60 Dart"
+        },
+
+        {
+            "name": "Blobfish",
+            "description": "This odd creature floats above the ocean floor, consuming any edible material in its path.",
+            "location": ["Night Market (Submarine)"],
+            "time": ["5pm - 2am"],
+            "season": ["Winter"],
+            "weather": ["Any"],
+            "difficulty": "75 Floater"
+        },
+        
+        {
+            "comment": "LEGENDARY FISH, CRAB POT & OTHERS"
+        }
+    ]
+}
