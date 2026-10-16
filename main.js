@@ -18,10 +18,16 @@ async function loadFish(){
             locString += loc;
         }
 
-        let tempCard = `<section><h3>${nameString} [${id}]</h3><p>${descString}</p><p>Location(s): ${locString}</p><img src="./assets/images/fish/${id}.png"></section>`;
+        let tempCard = `<section class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${nameString} [${id}]</h3><p>${descString}</p></div><div><button>Toggle Status</button><button>More Details</button></div></section>`;
         document.querySelector("#cardList").innerHTML += tempCard;
     }
 }
+
+// TO-DO: Write the function that creates the pop-up window showing the user more details of the fish they've selected.
+// Shows all relevant details that are not initially shown in the pool of cards.
+function showFishDetails(){
+    true;
+};
 
 loadFish();
 
