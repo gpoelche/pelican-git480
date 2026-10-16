@@ -1,6 +1,7 @@
 {
     "fish": [
         {
+            "id": 1,
             "name": "Pufferfish",
             "description": "Inflates when threatened.",
             "location": ["Ocean", "Ginger Island (Ocean)"],
@@ -11,6 +12,7 @@
         },
 
         {
+            "id": 2,
             "name": "Anchovy",
             "description": "A small silver fish found in the ocean.",
             "location": ["Ocean"],
@@ -21,6 +23,7 @@
         },
 
         {
+            "id": 3,
             "name": "Tuna",
             "description": "A large fish that lives in the ocean.",
             "location": ["Ocean", "Ginger Island (Ocean)"],
@@ -31,6 +34,7 @@
         },
 
         {
+            "id": 4,
             "name": "Sardine",
             "description": "A common ocean fish.",
             "location": ["Ocean"],
@@ -41,6 +45,7 @@
         },
 
         {
+            "id": 5,
             "name": "Bream",
             "description": "A fairly common river fish that becomes active at night.",
             "location": ["River"],
@@ -49,8 +54,9 @@
             "weather": ["Any"],
             "difficulty": "35 Smooth"
         },
-        
+
         {
+            "id": 6,
             "name": "Largemouth Bass",
             "description": "A popular fish that lives in lakes.",
             "location": ["Lake"],
@@ -61,6 +67,7 @@
         },
 
         {
+            "id": 7,
             "name": "Smallmouth Bass",
             "description": "A freshwater fish that is very sensitive to pollution.",
             "location": ["River", "Pond"],
@@ -71,6 +78,7 @@
         },
 
         {
+            "id": 8,
             "name": "Rainbow Trout",
             "description": "A freshwater trout with colorful markings.",
             "location": ["River", "Lake"],
@@ -81,6 +89,7 @@
         },
 
         {
+            "id": 9,
             "name": "Salmon",
             "description": "Swims upstream to lay its eggs.",
             "location": ["River", "Waterfalls"],
@@ -91,6 +100,7 @@
         },
 
         {
+            "id": 10,
             "name": "Walleye",
             "description": "A freshwater fish caught at night.",
             "location": ["River", "Pond", "Lake"],
@@ -101,6 +111,7 @@
         },
 
         {
+            "id": 11,
             "name": "Perch",
             "description": "A freshwater fish of the winter.",
             "location": ["River", "Pond", "Lake"],
@@ -111,6 +122,7 @@
         },
 
         {
+            "id": 12,
             "name": "Carp",
             "description": "A common pond fish.",
             "location": ["Lake", "Secret Woods", "Sewers", "Mutant Bug Lair"],
@@ -121,6 +133,7 @@
         },
 
         {
+            "id": 13,
             "name": "Catfish",
             "description": "An uncommon fish found in streams.",
             "location": ["River", "Secret Woods", "Witch's Swamp"],
@@ -131,6 +144,7 @@
         },
 
         {
+            "id": 14,
             "name": "Pike",
             "description": "A freshwater fish that's difficult to catch.",
             "location": ["River", "Pond"],
@@ -141,6 +155,7 @@
         },
 
         {
+            "id": 15,
             "name": "Sunfish",
             "description": "A common river fish.",
             "location": ["River"],
@@ -151,6 +166,7 @@
         },
 
         {
+            "id": 16,
             "name": "Red Mullet",
             "description": "Long ago these were kept as pets.",
             "location": ["Ocean"],
@@ -161,6 +177,7 @@
         },
 
         {
+            "id": 17,
             "name": "Herring",
             "description": "A common ocean fish.",
             "location": ["Ocean"],
@@ -171,6 +188,7 @@
         },
 
         {
+            "id": 18,
             "name": "Eel",
             "description": "A long, slippery little fish.",
             "location": ["Ocean"],
@@ -181,6 +199,7 @@
         },
 
         {
+            "id": 19,
             "name": "Octopus",
             "description": "A mysterious and intelligent creature.",
             "location": ["Ocean", "Ginger Island (Ocean)"],
@@ -191,6 +210,7 @@
         },
 
         {
+            "id": 20,
             "name": "Red Snapper",
             "description": "A popular fish with a nice red color.",
             "location": ["Ocean"],
@@ -201,6 +221,7 @@
         },
 
         {
+            "id": 21,
             "name": "Squid",
             "description": "A deep sea creature that can grow to enormous size.",
             "location": ["Ocean"],
@@ -211,6 +232,7 @@
         },
 
         {
+            "id": 22,
             "name": "Sea Cucumber",
             "description": "A slippery, slimy creature found on the ocean floor.",
             "location": ["Ocean"],
@@ -221,6 +243,7 @@
         },
 
         {
+            "id": 23,
             "name": "Super Cucumber",
             "description": "A rare, purple variety of sea cucumber.",
             "location": ["Ocean", "Ginger Island (Ocean)"],
@@ -231,6 +254,7 @@
         },
 
         {
+            "id": 24,
             "name": "Ghostfish",
             "description": "A pale, blind fish found in underground lakes.",
             "location": ["Mines (Floor 20)", "Mines (Floor 60)"],
@@ -241,6 +265,7 @@
         },
 
         {
+            "id": 25,
             "name": "Stonefish",
             "description": "A bizarre fish that's shaped like a brick.",
             "location": ["Mines (Floor 20)"],
@@ -251,6 +276,7 @@
         },
 
         {
+            "id": 26,
             "name": "Ice Pip",
             "description": "A rare fish that thrives in extremely cold conditions.",
             "location": ["Mines (Floor 60)"],
@@ -261,6 +287,7 @@
         },
 
         {
+            "id": 27,
             "name": "Lava Eel",
             "description": "It can somehow survive in pools of red-hot lava.",
             "location": ["Mines (Floor 100)", "Volcano Caldera"],
@@ -271,6 +298,7 @@
         },
 
         {
+            "id": 28,
             "name": "Sandfish",
             "description": "It tries to hide using camouflage.",
             "location": ["Desert"],
@@ -281,6 +309,7 @@
         },
 
         {
+            "id": 29,
             "name": "Scorpion Carp",
             "description": "It tries to hide using camouflage.",
             "location": ["Desert"],
@@ -291,6 +320,7 @@
         },
 
         {
+            "id": 30,
             "name": "Flounder",
             "description": "It lives on the bottom, so both eyes are on top of its head.",
             "location": ["Ocean", "Ginger Island (Ocean)"],
@@ -301,6 +331,7 @@
         },
 
         {
+            "id": 31,
             "name": "Midnight Carp",
             "description": "This shy fish only feels comfortable at night.",
             "location": ["Pond", "Lake", "Ginger Island (River)"],
@@ -311,6 +342,7 @@
         },
 
         {
+            "id": 32,
             "name": "Sturgeon",
             "description": "An ancient bottom-feeder with a dwindling population. Females can live up to 150 years.",
             "location": ["Lake"],
@@ -321,6 +353,7 @@
         },
 
         {
+            "id": 33,
             "name": "Tiger Trout",
             "description": "A rare hybrid trout that cannot bear offspring of its own.",
             "location": ["River"],
@@ -331,6 +364,7 @@
         },
 
         {
+            "id": 34,
             "name": "Bullhead",
             "description": "A relative of the catfish that eats a variety of foods off the lake bottom.",
             "location": ["Lake"],
@@ -341,6 +375,7 @@
         },
 
         {
+            "id": 35,
             "name": "Tilapia",
             "description": "A primarily vegetarian fish that prefers warm water.",
             "location": ["Ocean", "Ginger Island (River)"],
@@ -351,6 +386,7 @@
         },
 
         {
+            "id": 36,
             "name": "Chub",
             "description": "A common freshwater fish known for its voracious appetite.",
             "location": ["River", "Lake"],
@@ -361,6 +397,7 @@
         },
 
         {
+            "id": 37,
             "name": "Dorado",
             "description": "A fierce carnivore with brilliant orange scales.",
             "location": ["River"],
@@ -371,6 +408,7 @@
         },
 
         {
+            "id": 38,
             "name": "Albacore",
             "description": "Prefers temperature \"edges\" where cool and warm water meet.",
             "location": ["Ocean"],
@@ -381,6 +419,7 @@
         },
 
         {
+            "id": 39,
             "name": "Shad",
             "description": "Lives in a school at sea, but returns to the rivers to spawn.",
             "location": ["River"],
@@ -391,6 +430,7 @@
         },
 
         {
+            "id": 40,
             "name": "Lingcod",
             "description": "A fearsome predator that will eat almost anything it can cram into its mouth.",
             "location": ["River", "Lake"],
@@ -401,6 +441,7 @@
         },
 
         {
+            "id": 41,
             "name": "Halibut",
             "description": "A flat fish that lives on the ocean floor.",
             "location": ["Ocean"],
@@ -411,6 +452,7 @@
         },
 
         {
+            "id": 42,
             "name": "Woodskip",
             "description": "A very sensitive fish that can only live in pools deep in the forest.",
             "location": ["Secret Woods", "Forest Farm"],
@@ -421,6 +463,7 @@
         },
 
         {
+            "id": 43,
             "name": "Void Salmon",
             "description": "A salmon, twisted by void energy. The fresh meat is jet black, but rapidly turns pink when exposed to air.",
             "location": ["Witch's Swamp"],
@@ -431,6 +474,7 @@
         },
 
         {
+            "id": 44,
             "name": "Slimejack",
             "description": "He's coated in a very thick layer of slime. He keeps slipping out of your hands!",
             "location": ["Mutant Bug Lair"],
@@ -441,6 +485,7 @@
         },
 
         {
+            "id": 45,
             "name": "Stingray",
             "description": "Despite having a toxic stinger, these fish are shy and prefer to avoid humans.",
             "location": ["Ginger Island (Pirate Cove)"],
@@ -451,6 +496,7 @@
         },
 
         {
+            "id": 46,
             "name": "Lionfish",
             "description": "An aggressive, predatory fish with venomous spines.",
             "location": ["Ginger Island (Ocean)"],
@@ -461,6 +507,7 @@
         },
 
         {
+            "id": 47,
             "name": "Blue Discus",
             "description": "A brightly colored tropical fish that is popular in aquariums.",
             "location": ["Ginger Island (River)"],
@@ -471,6 +518,7 @@
         },
 
         {
+            "id": 48,
             "name": "Goby",
             "description": "Some types of Gobies can climb up waterfalls.",
             "location": ["Waterfalls"],
@@ -481,6 +529,7 @@
         },
 
         {
+            "id": 49,
             "name": "Midnight Squid",
             "description": "A strange and mysterious denizen of the ocean's twilight depths.",
             "location": ["Night Market (Submarine)"],
@@ -491,6 +540,7 @@
         },
 
         {
+            "id": 50,
             "name": "Spook Fish",
             "description": "The huge eyes can detect the faint silhouettes of prey.",
             "location": ["Night Market (Submarine)"],
@@ -501,6 +551,7 @@
         },
 
         {
+            "id": 51,
             "name": "Blobfish",
             "description": "This odd creature floats above the ocean floor, consuming any edible material in its path.",
             "location": ["Night Market (Submarine)"],
@@ -508,10 +559,6 @@
             "season": ["Winter"],
             "weather": ["Any"],
             "difficulty": "75 Floater"
-        },
-        
-        {
-            "comment": "LEGENDARY FISH, CRAB POT & OTHERS"
         }
     ]
 }
