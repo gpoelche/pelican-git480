@@ -70,3 +70,21 @@ table {
     border-radius: 15px;
     padding: 20px;
 }
+
+.fish-popup{
+    z-index: 10;
+    justify-self: center;
+    position: fixed;
+    bottom: 0;
+    background: var(--black);
+    color: var(--white);
+    padding: 300px;
+}
+
+.id-div{
+    display: none;
+}
+
+.hidden{
+    display: none;
+}
