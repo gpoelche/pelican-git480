@@ -46,8 +46,20 @@ loadFish();
 // Shows all relevant details that are not initially shown in the pool of cards.
 function showFishDetails(e){
     document.querySelector(".fish-popup").classList.remove("hidden");
-    let id = e.target.nextSiblingElement.textContent;
-    console.log(id);
+
+    //Uses the button to find the card the button was pressed in.
+    //querySelector is used to search for the div in that card containing the fish ID, which will be used for populating fish content in the card.
+    let rootCard = e.target.closest(".fish-card");
+    let id = Number(rootCard.querySelector(".id-div").textContent);
+
+    let targetFish = fishMap.get(id);
+    console.log(targetFish);
+
+    let popupWindow = document.querySelector(".fish-popup");
+    popupWindow.querySelector("h4").textContent = fishMap.get(id).name;
+    popupWindow.querySelector("p").textContent = fishMap.get(id).description;
+
+
 }
 
 //Allows the pop-up window to close when the close window button is clicked.
