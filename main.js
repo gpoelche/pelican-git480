@@ -3,6 +3,7 @@
 //Map for holding each of the fish once loaded into the DOM. This is much easier
 //to work with for finding the key details shown in the pop-up window for each fish.
 const fishMap = new Map();
+const caughtFish = [];
 
 // Function for loading all of the fish cards into the tracking pool from appData.json.
 // Will be called every time the application is first loaded. This will need to also check localStorage for fish already caught.
@@ -27,7 +28,24 @@ async function loadFish(){
         document.querySelector("#cardList").innerHTML += tempCard;
 
         //Mapping the indexes of the JSON to a Map, which will make searching for each fish much easier when needing to display fish cards.
-        fishMap.set(id, {name: nameString, description: descString, location: location, time: time, season: season, weather: weather, difficulty: difficulty, caught: false});
+        fishMap.set(id, {name: nameString, description: descString, location: location, time: time, season: season, weather: weather, difficulty: difficulty});
+    }
+
+    //Checks to see if the user has previously registered fish as caught in localStorage.
+    //If so, data stored in localStorage are entered into the caughtFish array.
+    //Values must be casted as Numbers with map() or the toggleCatch function will not work properly.
+    if(localStorage.getItem("caughtFish")){
+        let temp = localStorage.getItem("caughtFish").split(",").map(Number);
+        for(let a of temp){
+            caughtFish.push(a);
+        }
+        console.log(caughtFish);
+    }
+
+    if(caughtFish.length > 0){
+        for(let id of caughtFish){
+            document.querySelector('[data-fish-id="' + id + '"').querySelector(".catch-button").textContent = "Set to Uncaught";
+        }
     }
 
     //Add event listener to buttons responsible for showing fish details.
@@ -48,7 +66,7 @@ function showFishDetails(e){
     document.querySelector(".fish-popup").classList.remove("hidden");
 
     //Uses the button to find the card the button was pressed in. Then uses the custom dataset attribute containing the fish ID for the map search.
-    let id = Number(e.target.closest(".fish-card").dataset.fishId)
+    let id = Number(e.target.closest(".fish-card").dataset.fishId);
     let targetFish = fishMap.get(id);
 
     let popupWindow = document.querySelector(".fish-popup");
@@ -87,10 +105,37 @@ function showFishDetails(e){
 
 //TO-DO: Function that toggles if a fish has or hasn't been caught so far.
 function toggleCatchStatus(e){
-    alert("Yes");
+    let id = Number(e.target.closest(".fish-card").dataset.fishId);
+    if(caughtFish.includes(id)){
+        caughtFish.splice(caughtFish.indexOf(id), 1);
+        alert("Fish has been set to uncaught.");
+        e.target.textContent = "Set to Caught";
+    }
+
+    else{
+        caughtFish.push(id);
+        alert("Fish has been set to caught.");
+        e.target.textContent = "Set to Uncaught";
+    }
+
+    caughtFish.sort();
+    console.log(caughtFish);
+
+    let temp = caughtFish.toString();
+
+    localStorage.setItem("caughtFish", temp);
+    console.log(localStorage.getItem("caughtFish"));
+}
+
+//Will be the function used to return a filtered set of fish on the DOM for the user.
+//Will run every time the form is changed on the page.
+function filteredSearch(e){
+    alert("TO-DO");
 }
 
 //Allows the pop-up window to close when the close window button is clicked.
 document.querySelector(".fish-popup button:first-of-type").addEventListener("click", function(){
     document.querySelector(".fish-popup").classList.add("hidden");
 });
+
+document.querySelector("#filters form").addEventListener("change", filteredSearch);
