@@ -13,24 +13,21 @@ async function loadFish(){
 
     for(let card of fishData.fish){
         //Storing temporary variables for each of the fish key details
-        let nameString = card.name;
         let id = card.id;
+        let nameString = card.name;
         let descString = card.description;
-        let locString = "";
+        let location = card.location;
+        let time = card.time;
+        let season = card.season;
         let weather = card.weather;
         let difficulty = card.difficulty;
-
-        //Building the location(s) string, will likely be reworked
-        for(let loc of card.location){
-            locString += loc;
-        }
 
         //Loading each fish into a card on the screen
         let tempCard = `<section class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${nameString}</h3><p>${descString}</p></div><div><button>Toggle Status</button><button class="detail-button">More Details</button><div class="id-div">${id}</div></div></section>`;
         document.querySelector("#cardList").innerHTML += tempCard;
 
         //Mapping the indexes of the JSON to a Map, which will make searching for each fish much easier when needing to display fish cards.
-        fishMap.set(id, {name: nameString, description: descString, difficulty: difficulty});
+        fishMap.set(id, {name: nameString, description: descString, location: location, time: time, season: season, weather: weather, difficulty: difficulty});
     }
 
     //Add event listener to buttons responsible for showing fish details.
@@ -53,11 +50,40 @@ function showFishDetails(e){
     let id = Number(rootCard.querySelector(".id-div").textContent);
 
     let targetFish = fishMap.get(id);
-    console.log(targetFish);
 
     let popupWindow = document.querySelector(".fish-popup");
-    popupWindow.querySelector("h4").textContent = fishMap.get(id).name;
-    popupWindow.querySelector("p").textContent = fishMap.get(id).description;
+    popupWindow.querySelector("img").src = `assets/images/fish/${id}.png`;
+    popupWindow.querySelector("h4").textContent = targetFish.name;
+    popupWindow.querySelector("p").textContent = targetFish.description;
+
+    popupWindow.querySelector("#locationList").innerHTML = "";
+    for(let loc of targetFish.location){
+        let temp = document.createElement("li");
+        temp.textContent = loc;
+        popupWindow.querySelector("#locationList").appendChild(temp);
+    }
+
+    popupWindow.querySelector("#timeList").innerHTML = "";
+    for(let time of targetFish.time){
+        let temp = document.createElement("li");
+        temp.textContent = time;
+        popupWindow.querySelector("#timeList").appendChild(temp);
+    }
+
+    popupWindow.querySelector("#seasonList").innerHTML = "";
+    for(let season of targetFish.season){
+        let temp = document.createElement("li");
+        temp.textContent = season;
+        popupWindow.querySelector("#seasonList").appendChild(temp);
+    }
+
+    popupWindow.querySelector("#weatherList").innerHTML = "";
+    for(let weather of targetFish.weather){
+        let temp = document.createElement("li");
+        temp.textContent = weather;
+        popupWindow.querySelector("#weatherList").appendChild(temp);
+    }
+
 
 
 }
