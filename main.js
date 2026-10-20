@@ -39,7 +39,7 @@ async function loadFish(){
         for(let a of temp){
             caughtFish.push(a);
         }
-        console.log(caughtFish);
+        document.querySelector("#fishCount").textContent = caughtFish.length;
     }
 
     if(caughtFish.length > 0){
@@ -64,10 +64,15 @@ loadFish();
 // Shows all relevant details that are not initially shown in the pool of cards.
 function showFishDetails(e){
     document.querySelector(".fish-popup").classList.remove("hidden");
+    document.querySelector(".fish-popup button:last-of-type").textContent = "Set to Caught";
 
     //Uses the button to find the card the button was pressed in. Then uses the custom dataset attribute containing the fish ID for the map search.
     let id = Number(e.target.closest(".fish-card").dataset.fishId);
     let targetFish = fishMap.get(id);
+
+    if(caughtFish.includes(id)){
+        document.querySelector(".fish-popup button:last-of-type").textContent = "Set to Uncaught";
+    }
 
     let popupWindow = document.querySelector(".fish-popup");
     popupWindow.querySelector("img").src = `assets/images/fish/${id}.png`;
@@ -104,6 +109,7 @@ function showFishDetails(e){
 }
 
 //TO-DO: Function that toggles if a fish has or hasn't been caught so far.
+//Function needs updated to work with both being toggled in the preview window or in the main filter screen
 function toggleCatchStatus(e){
     let id = Number(e.target.closest(".fish-card").dataset.fishId);
     if(caughtFish.includes(id)){
@@ -119,7 +125,7 @@ function toggleCatchStatus(e){
     }
 
     caughtFish.sort();
-    console.log(caughtFish);
+    document.querySelector("#fishCount").textContent = caughtFish.length;
 
     let temp = caughtFish.toString();
 
