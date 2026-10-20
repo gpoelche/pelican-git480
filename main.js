@@ -23,11 +23,11 @@ async function loadFish(){
         let difficulty = card.difficulty;
 
         //Loading each fish into a card on the screen
-        let tempCard = `<section class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${nameString}</h3><p>${descString}</p></div><div><button>Toggle Status</button><button class="detail-button">More Details</button><div class="id-div">${id}</div></div></section>`;
+        let tempCard = `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${nameString}</h3><p>${descString}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button><div class="id-div">${id}</div></div></section>`;
         document.querySelector("#cardList").innerHTML += tempCard;
 
         //Mapping the indexes of the JSON to a Map, which will make searching for each fish much easier when needing to display fish cards.
-        fishMap.set(id, {name: nameString, description: descString, location: location, time: time, season: season, weather: weather, difficulty: difficulty});
+        fishMap.set(id, {name: nameString, description: descString, location: location, time: time, season: season, weather: weather, difficulty: difficulty, caught: false});
     }
 
     //Add event listener to buttons responsible for showing fish details.
@@ -35,20 +35,20 @@ async function loadFish(){
     for(let button of document.querySelectorAll(".detail-button")){
         button.addEventListener("click", showFishDetails);
     }
+
+    for(let button of document.querySelectorAll(".catch-button")){
+        button.addEventListener("click", toggleCatchStatus);
+    }
 }
 
 loadFish();
 
-// TO-DO: Write the function that creates the pop-up window showing the user more details of the fish they've selected.
 // Shows all relevant details that are not initially shown in the pool of cards.
 function showFishDetails(e){
     document.querySelector(".fish-popup").classList.remove("hidden");
 
-    //Uses the button to find the card the button was pressed in.
-    //querySelector is used to search for the div in that card containing the fish ID, which will be used for populating fish content in the card.
-    let rootCard = e.target.closest(".fish-card");
-    let id = Number(rootCard.querySelector(".id-div").textContent);
-
+    //Uses the button to find the card the button was pressed in. Then uses the custom dataset attribute containing the fish ID for the map search.
+    let id = Number(e.target.closest(".fish-card").dataset.fishId)
     let targetFish = fishMap.get(id);
 
     let popupWindow = document.querySelector(".fish-popup");
@@ -83,9 +83,11 @@ function showFishDetails(e){
         temp.textContent = weather;
         popupWindow.querySelector("#weatherList").appendChild(temp);
     }
+}
 
-
-
+//TO-DO: Function that toggles if a fish has or hasn't been caught so far.
+function toggleCatchStatus(e){
+    alert("Yes");
 }
 
 //Allows the pop-up window to close when the close window button is clicked.
