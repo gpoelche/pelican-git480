@@ -65,9 +65,10 @@ loadFish();
 function showFishDetails(e){
     document.querySelector(".fish-popup").classList.remove("hidden");
     document.querySelector(".fish-popup button:last-of-type").textContent = "Set to Caught";
-
+    
     //Uses the button to find the card the button was pressed in. Then uses the custom dataset attribute containing the fish ID for the map search.
     let id = Number(e.target.closest(".fish-card").dataset.fishId);
+    document.querySelector(".fish-popup").dataset.fishId = id;
     let targetFish = fishMap.get(id);
 
     if(caughtFish.includes(id)){
@@ -111,16 +112,23 @@ function showFishDetails(e){
 //TO-DO: Function that toggles if a fish has or hasn't been caught so far.
 //Function needs updated to work with both being toggled in the preview window or in the main filter screen
 function toggleCatchStatus(e){
-    let id = Number(e.target.closest(".fish-card").dataset.fishId);
-    if(caughtFish.includes(id)){
-        caughtFish.splice(caughtFish.indexOf(id), 1);
-        alert("Fish has been set to uncaught.");
-        e.target.textContent = "Set to Caught";
+    let id;
+
+    if(e.target == document.querySelector(".fish-popup #popupStatus")){
+        id = Number(e.target.closest(".fish-popup").dataset.fishId);
+    }
+
+    else{
+        id = Number(e.target.closest(".fish-card").dataset.fishId);
+    }
+
+     if(caughtFish.includes(id)){
+            caughtFish.splice(caughtFish.indexOf(id), 1);
+            e.target.textContent = "Set to Caught";
     }
 
     else{
         caughtFish.push(id);
-        alert("Fish has been set to caught.");
         e.target.textContent = "Set to Uncaught";
     }
 
@@ -144,4 +152,5 @@ document.querySelector(".fish-popup button:first-of-type").addEventListener("cli
     document.querySelector(".fish-popup").classList.add("hidden");
 });
 
+document.querySelector("#popupStatus").addEventListener("click", toggleCatchStatus);
 document.querySelector("#filters form").addEventListener("change", filteredSearch);
