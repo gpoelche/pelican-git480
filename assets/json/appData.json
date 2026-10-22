@@ -571,8 +571,8 @@
             "weather": ["Any"],
             "difficulty": "95 Mixed",
             "legendary" : true,
-            "legend-note": "This fish can only be caught at the East Pier on the Beach.",
-            "required-level": 5
+            "legendNote": "This fish can only be caught at the East Pier on the Beach.",
+            "requiredLevel": 5
         },
 
         {
@@ -585,8 +585,8 @@
             "weather": ["Any"],
             "difficulty": "85 Smooth",
             "legendary" : true,
-            "legend-note": "This fish can only be caught at the waterfall north of JojaMart.",
-            "required-level": 3
+            "legendNote": "This fish can only be caught at the waterfall north of JojaMart.",
+            "requiredLevel": 3
         },
 
         {
@@ -599,8 +599,8 @@
             "weather": ["Rain"],
             "difficulty": "110 Mixed",
             "legendary" : true,
-            "legend-note": "This fish can only be caught at the log in the Mountain Lake.",
-            "required-level": 10
+            "legendNote": "This fish can only be caught at the log in the Mountain Lake.",
+            "requiredLevel": 10
         },
 
         {
@@ -613,8 +613,8 @@
             "weather": ["Any"],
             "difficulty": "100 Mixed",
             "legendary" : true,
-            "legend-note": "This fish can only be caught at Arrowhead Island in the forest.",
-            "required-level": 6
+            "legendNote": "This fish can only be caught at Arrowhead Island in the forest.",
+            "requiredLevel": 6
         },
 
         {
@@ -627,8 +627,8 @@
             "weather": ["Any"],
             "difficulty": "80 Dart",
             "legendary" : true,
-            "legend-note": "This fish can only be caught in the Sewers.",
-            "required-level": 0
+            "legendNote": "This fish can only be caught in the Sewers.",
+            "requiredLevel": 0
         }
     ]
 }

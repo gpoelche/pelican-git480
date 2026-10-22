@@ -13,39 +13,39 @@ async function loadFish(){
     document.querySelector("#cardList").innerHTML = "";
 
     for(let card of fishData.fish){
-        //Storing temporary variables for each of the fish key details
-        let id = card.id;
-        let nameString = card.name;
-        let descString = card.description;
-        let location = card.location;
-        let time = card.time;
-        let season = card.season;
-        let weather = card.weather;
-        let difficulty = card.difficulty;
 
         //Loading each fish into a card on the screen
-        let tempCard = `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${nameString}</h3><p>${descString}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button><div class="id-div">${id}</div></div></section>`;
+        let tempCard = `<section data-fish-id="${card.id}" class="fish-card"><img src="./assets/images/fish/${card.id}.png"><div><h3>${card.name}</h3><p>${card.description}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button></div></section>`;
         document.querySelector("#cardList").innerHTML += tempCard;
 
         //Mapping the indexes of the JSON to a Map, which will make searching for each fish much easier when needing to display fish cards.
-        fishMap.set(id, {name: nameString, description: descString, location: location, time: time, season: season, weather: weather, difficulty: difficulty});
+        //Legendary fish have unique identifying fields, so these must be added in a seperate declaration from normal fish.
+        if(card.legendary){
+            fishMap.set(card.id, {name: card.name, description: card.description, location: card.location, time: card.time, season: card.season, weather: card.weather, difficulty: card.difficulty, legendary: card.legendary, legendNote: card.legendNote, requiredLevel: card.requiredLevel});
+        }
+
+        else{
+            fishMap.set(card.id, {name: card.name, description: card.description, location: card.location, time: card.time, season: card.season, weather: card.weather, difficulty: card.difficulty});
+        }
     }
 
     //Checks to see if the user has previously registered fish as caught in localStorage.
     //If so, data stored in localStorage are entered into the caughtFish array.
     //Values must be casted as Numbers with map() or the toggleCatch function will not work properly.
     if(localStorage.getItem("caughtFish")){
+        caughtFish.length = 0;
         let temp = localStorage.getItem("caughtFish").split(",").map(Number);
-        for(let a of temp){
-            caughtFish.push(a);
+        for(let f of temp){
+            caughtFish.push(f);
         }
-        document.querySelector("#fishCount").textContent = caughtFish.length;
-    }
 
-    if(caughtFish.length > 0){
+        //Setting proper labels for toggle buttons on fish stored in the user's local storage
         for(let id of caughtFish){
             document.querySelector('[data-fish-id="' + id + '"').querySelector(".catch-button").textContent = "Set to Uncaught";
         }
+        
+        //Update the fish count
+        document.querySelector("#fishCount").textContent = caughtFish.length;
     }
 
     //Add event listener to buttons responsible for showing fish details.
@@ -58,8 +58,6 @@ async function loadFish(){
         button.addEventListener("click", toggleCatchStatus);
     }
 }
-
-loadFish();
 
 // Shows all relevant details that are not initially shown in the pool of cards.
 function showFishDetails(e){
@@ -109,29 +107,37 @@ function showFishDetails(e){
     }
 }
 
-//TO-DO: Function that toggles if a fish has or hasn't been caught so far.
-//Function needs updated to work with both being toggled in the preview window or in the main filter screen
+//Function that toggles a fish's caught status. Status is toggled and the count for the user's caught fish total is updated.
 function toggleCatchStatus(e){
     let id;
 
+    //Fish ID is pulled differently depending on which container the event comes from.
+    //Needs to distinguish where the event is from so that the proper query is performed to grab the ID in the fishId dataset.
+
+    //When event is from the popup window
     if(e.target == document.querySelector(".fish-popup #popupStatus")){
         id = Number(e.target.closest(".fish-popup").dataset.fishId);
     }
 
+    //When event is from the fish card in the fish pool
     else{
         id = Number(e.target.closest(".fish-card").dataset.fishId);
     }
 
+    //If fish is caught, remove from the caughtFish array and toggle status
      if(caughtFish.includes(id)){
             caughtFish.splice(caughtFish.indexOf(id), 1);
             e.target.textContent = "Set to Caught";
     }
 
+    //Fish is not caught, which is then set to caught and added to the caughtFish array
     else{
         caughtFish.push(id);
         e.target.textContent = "Set to Uncaught";
     }
 
+    //Sort the array to keep fish ID in numerical order. Likely not needed, but a preference.
+    //Count is updated.
     caughtFish.sort();
     document.querySelector("#fishCount").textContent = caughtFish.length;
 
@@ -171,3 +177,6 @@ document.querySelector("#resetButton").addEventListener("click", function(){
     document.querySelector("form").reset();
     loadFish();
 });
+
+//Wait for the DOM to load before performing loadFish()
+document.addEventListener("DOMContentLoaded", loadFish);
