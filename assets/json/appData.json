@@ -559,6 +559,76 @@
             "season": ["Winter"],
             "weather": ["Any"],
             "difficulty": "75 Floater"
+        },
+
+        {
+            "id": 52,
+            "name": "Crimsonfish",
+            "description": "Lives deep in the ocean but likes to lay its eggs in the warm summer water.",
+            "location": ["Ocean"],
+            "time": ["Anytime"],
+            "season": ["Summer"],
+            "weather": ["Any"],
+            "difficulty": "95 Mixed",
+            "legendary" : true,
+            "legend-note": "This fish can only be caught at the East Pier on the Beach.",
+            "required-level": 5
+        },
+
+        {
+            "id": 53,
+            "name": "Angler",
+            "description": "Uses a bioluminescent dangler to attract prey.",
+            "location": ["Waterfalls"],
+            "time": ["Anytime"],
+            "season": ["Fall"],
+            "weather": ["Any"],
+            "difficulty": "85 Smooth",
+            "legendary" : true,
+            "legend-note": "This fish can only be caught at the waterfall north of JojaMart.",
+            "required-level": 3
+        },
+
+        {
+            "id": 54,
+            "name": "Legend",
+            "description": "The king of all fish! They said he'd never be caught.",
+            "location": ["Lake"],
+            "time": ["Anytime"],
+            "season": ["Spring"],
+            "weather": ["Rain"],
+            "difficulty": "110 Mixed",
+            "legendary" : true,
+            "legend-note": "This fish can only be caught at the log in the Mountain Lake.",
+            "required-level": 10
+        },
+
+        {
+            "id": 55,
+            "name": "Glacierfish",
+            "description": "Builds a nest on the underside of glaciers.",
+            "location": ["River"],
+            "time": ["Anytime"],
+            "season": ["Winter"],
+            "weather": ["Any"],
+            "difficulty": "100 Mixed",
+            "legendary" : true,
+            "legend-note": "This fish can only be caught at Arrowhead Island in the forest.",
+            "required-level": 6
+        },
+
+        {
+            "id": 56,
+            "name": "Mutant Carp",
+            "description": "The strange waters of the sewer turned this carp into a monstrosity.",
+            "location": ["Sewers"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "80 Dart",
+            "legendary" : true,
+            "legend-note": "This fish can only be caught in the Sewers.",
+            "required-level": 0
         }
     ]
 }

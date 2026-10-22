@@ -8,9 +8,9 @@ const caughtFish = [];
 // Function for loading all of the fish cards into the tracking pool from appData.json.
 // Will be called every time the application is first loaded. This will need to also check localStorage for fish already caught.
 async function loadFish(){
-    console.log("This is a test function.");
     let data = await fetch("./assets/json/appData.json");
     let fishData = await data.json();
+    document.querySelector("#cardList").innerHTML = "";
 
     for(let card of fishData.fish){
         //Storing temporary variables for each of the fish key details
@@ -144,7 +144,18 @@ function toggleCatchStatus(e){
 //Will be the function used to return a filtered set of fish on the DOM for the user.
 //Will run every time the form is changed on the page.
 function filteredSearch(e){
-    alert("TO-DO");
+    // TEST STATEMENT
+    console.log("FILTERED SEARCH :: WIP");
+
+    //Start by collecting the values in the filter section fields
+    //Values used to query the fish that meet the selected criteria
+    let statusFilter = document.querySelector('input[name="caught"]:checked').value;
+    let locationFilter = document.querySelector('select[name="location"]').value;
+    let seasonFilter = document.querySelector('select[name="season"]').value;
+    let weatherFilter = document.querySelector('select[name="weather"]').value;
+
+    // TEST STATEMENT
+    console.log(statusFilter + " " + locationFilter + " " + seasonFilter + " " + weatherFilter);
 }
 
 //Allows the pop-up window to close when the close window button is clicked.
@@ -154,3 +165,9 @@ document.querySelector(".fish-popup button:first-of-type").addEventListener("cli
 
 document.querySelector("#popupStatus").addEventListener("click", toggleCatchStatus);
 document.querySelector("#filters form").addEventListener("change", filteredSearch);
+
+// Event listener that resets the filter forms and reloads all normal cards into the fish card pool.
+document.querySelector("#resetButton").addEventListener("click", function(){
+    document.querySelector("form").reset();
+    loadFish();
+});

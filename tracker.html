@@ -64,13 +64,18 @@
                             <legend>Catch Status</legend>
 
                             <div>
-                                <input type="radio" name="caught" id="true" value="true">
-                                <label for="true">Caught</label>
+                                <input type="radio" name="caught" id="allCaught" value="allCaught" checked>
+                                <label for="allCaught">All Fish</label>
                             </div>
 
                             <div>
-                                <input type="radio" name="caught" id="false" value="false">
-                                <label for="false">Uncaught</label>
+                                <input type="radio" name="caught" id="caughtOnly" value="caughtOnly">
+                                <label for="caughtOnly">Caught</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" name="caught" id="uncaughtOnly" value="uncaughtOnly">
+                                <label for="uncaughtOnly">Uncaught</label>
                             </div>
                         </fieldset>
                     </div>
@@ -84,17 +89,19 @@
                                 <label for="location">Location</label>
                                 <select name="location" id="location">
                                     <option value="all">Anywhere</option>
+                                    <option value="town">Pelican Town</option>
                                 </select>
                             </div>
 
                             <div>
                                 <label for="season">Season</label>
                                 <select name="season" id="season">
-                                    <option value="all">Yearly</option>
-                                    <option value="spring">Spring</option>
-                                    <option value="summer">Summer</option>
-                                    <option value="fall">Fall</option>
-                                    <option value="winter">Winter</option>
+                                    <option value="All">Any Season</option>
+                                    <!-- <option value="yearly">Yearly</option> -->
+                                    <option value="Spring">Spring</option>
+                                    <option value="Summer">Summer</option>
+                                    <option value="Fall">Fall</option>
+                                    <option value="Winter">Winter</option>
                                 </select>
                             </div>
 
@@ -102,13 +109,16 @@
                             <div>
                                 <label for="weather">Weather Condition</label>
                                 <select name="weather" id="weather">
-                                    <option value="all">Any</option>
-                                    <option value="sunny">Sunny</option>
+                                    <option value="All">Any</option>
+                                    <option value="Sunny">Sunny</option>
+                                    <option value="Rain">Rainy</option>
                                 </select>
                             </div>
 
                         </fieldset>
                     </div>
+
+                    <button id="resetButton">Reset Filters</button>
                 </form>
             </section>
 
