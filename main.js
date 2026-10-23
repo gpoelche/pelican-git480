@@ -124,17 +124,28 @@ function toggleCatchStatus(e){
         id = Number(e.target.closest(".fish-card").dataset.fishId);
     }
 
+    //String that will hold the value put into the toggleStatus buttons
+    let buttonText = "";
+
     //If fish is caught, remove from the caughtFish array and toggle status
      if(caughtFish.includes(id)){
             caughtFish.splice(caughtFish.indexOf(id), 1);
-            e.target.textContent = "Set to Caught";
+            buttonText = "Set to Caught";
     }
 
     //Fish is not caught, which is then set to caught and added to the caughtFish array
     else{
         caughtFish.push(id);
-        e.target.textContent = "Set to Uncaught";
+        buttonText = "Set to Uncaught";
     }
+
+    //Assign toggleStatus buttons with the assigned string value
+    //Also updates toggleStatus button on fish card if the function is called from the fish popup window
+    e.target.textContent = buttonText;
+    if(e.target == document.querySelector(".fish-popup #popupStatus")){
+            alert("TOGGLED FROM POPUP");
+                document.querySelector(`.fish-card[data-fish-id="${id}"] .catch-button`).textContent = buttonText;
+            }
 
     //Sort the array to keep fish ID in numerical order. Likely not needed, but a preference.
     //Count is updated.
