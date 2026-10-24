@@ -106,7 +106,7 @@
             "location": ["River", "Pond", "Lake"],
             "time": ["12pm - 2am"],
             "season": ["Fall", "Winter"],
-            "weather": ["Rain"],
+            "weather": ["Rainy"],
             "difficulty": "45 Smooth"
         },
 
@@ -139,7 +139,7 @@
             "location": ["River", "Secret Woods", "Witch's Swamp"],
             "time": ["6am - 12pm"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
-            "weather": ["Rain"],
+            "weather": ["Rainy"],
             "difficulty": "75 Mixed"
         },
 
@@ -194,7 +194,7 @@
             "location": ["Ocean"],
             "time": ["4pm - 2am"],
             "season": ["Spring", "Fall"],
-            "weather": ["Rain"],
+            "weather": ["Rainy"],
             "difficulty": "70 Smooth"
         },
 
@@ -216,7 +216,7 @@
             "location": ["Ocean"],
             "time": ["6am - 7pm"],
             "season": ["Summer", "Fall", "Winter"],
-            "weather": ["Rain"],
+            "weather": ["Rainy"],
             "difficulty": "40 Mixed"
         },
 
@@ -425,7 +425,7 @@
             "location": ["River"],
             "time": ["9am - 2am"],
             "season": ["Spring", "Summer", "Fall"],
-            "weather": ["Rain"],
+            "weather": ["Rainy"],
             "difficulty": "45 Smooth"
         },
 
@@ -596,7 +596,7 @@
             "location": ["Lake"],
             "time": ["Anytime"],
             "season": ["Spring"],
-            "weather": ["Rain"],
+            "weather": ["Rainy"],
             "difficulty": "110 Mixed",
             "legendary" : true,
             "legendNote": "This fish can only be caught at the log in the Mountain Lake.",

@@ -160,10 +160,8 @@ function toggleCatchStatus(e){
 
 //Will be the function used to return a filtered set of fish on the DOM for the user.
 //Will run every time the form is changed on the page.
+//TO-DO :: Fix bug where toggleStatus button on cards added from filters don't match their status in the caughtFish array.
 function filteredSearch(e){
-    // TEST STATEMENT
-    console.log("FILTERED SEARCH :: WIP");
-
     //Start by collecting the values in the filter section fields
     //Values used to query the fish that meet the selected criteria
     let statusFilter = document.querySelector('input[name="caught"]:checked').value;
@@ -171,8 +169,91 @@ function filteredSearch(e){
     let seasonFilter = document.querySelector('select[name="season"]').value;
     let weatherFilter = document.querySelector('select[name="weather"]').value;
 
-    // TEST STATEMENT
-    console.log(statusFilter + " " + locationFilter + " " + seasonFilter + " " + weatherFilter);
+    //Converting the fishMap to an array so that filter functions can be used.
+    //This makes searching based on certain conditions much easier.
+    let filterArray = Array.from(fishMap);
+
+    //Filter #1 - Catch Status
+    //If yes, then checks to see if its caught or uncaught. Checks against caughtFish depending on answer.
+    //If no filter is placed, the loop breaks and all fish are considered for the filtered list.
+    switch(statusFilter){
+        case "caughtOnly":
+            filterArray = filterArray.filter(([id, fish]) => caughtFish.includes(id));
+            break;
+
+        case "uncaughtOnly":
+            filterArray = filterArray.filter(([id, fish]) => !caughtFish.includes(id));
+            break;
+
+        default:
+            break;
+    }
+
+    //Filter #2 - Location :: TO-DO
+    //Location data must be normalized and the appData file must be finalized first.
+    //Need to find a way to organize locations that makes sense despite the various locations each fish has.
+
+    //Filter #3 - Season(s)
+    //Checks for specific season cases to filter fish out from the array.
+    //If no season is applied, no filter is placed and this case loop breaks.
+    switch(seasonFilter){
+        case "Spring":
+            filterArray = filterArray.filter(([id, fish]) => fish.season.includes("Spring"));
+            break;
+
+        case "Summer":
+            filterArray = filterArray.filter(([id, fish]) => fish.season.includes("Summer"));
+            break;
+
+        case "Fall":
+            filterArray = filterArray.filter(([id, fish]) => fish.season.includes("Fall"));
+            break;
+
+        case "Winter":
+            filterArray = filterArray.filter(([id, fish]) => fish.season.includes("Winter"));
+            break;
+        
+        default:
+            break;
+    }
+
+    //Filter #4 - Weather
+    //Checks to see if fish are caught in specific conditions.
+    //This also includes fish that are caught in any condition since any is separate from sunny or rainy but applies also to both.
+    //A fish with any only holds that value, which technically satisfies both rainy and sunny.
+    switch(weatherFilter){
+        case "Sunny":
+            filterArray = filterArray.filter(([id, fish]) => fish.weather.includes("Sunny") || fish.weather.includes("Any"));
+            break;
+
+        case "Rainy":
+            filterArray = filterArray.filter(([id, fish]) => fish.weather.includes("Rainy") || fish.weather.includes("Any"));
+            break;
+
+        default:
+            break;
+    }
+
+    //Clearing the #cardList so the filtered cards can be added to the DOM.
+    //This is done by iteratively initializing new cards in the same manner as the loadFish method.
+    //I think at some point I'll write a new method strictly for loading fish cards into the DOM to reduce redundant code.
+    document.querySelector("#cardList").innerHTML = "";
+    let temp = "";
+
+    for(let [id, fish] of filterArray){
+        temp += `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button></div></section>`;
+    }
+
+    document.querySelector("#cardList").innerHTML += temp;
+
+    //Adding event listeners to each card since they have been added into the DOM after the page has loaded.
+    for(let button of document.querySelectorAll(".detail-button")){
+        button.addEventListener("click", showFishDetails);
+    }
+
+    for(let button of document.querySelectorAll(".catch-button")){
+        button.addEventListener("click", toggleCatchStatus);
+    }
 }
 
 //Allows the pop-up window to close when the close window button is clicked.
