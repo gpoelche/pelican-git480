@@ -29,8 +29,9 @@ async function goFish(){
             document.querySelector('[data-fish-id="' + id + '"]').querySelector(".catch-button").textContent = "Set to Uncaught";
         }
         
-        //Update the fish count
+        //Update the fish count and set the total quantity of fish available.
         document.querySelector("#fishCount").textContent = caughtFish.length;
+        document.querySelector("#fishTotal").textContent = fishMap.size;
     }
 }
 

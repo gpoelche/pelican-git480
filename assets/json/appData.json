@@ -629,6 +629,198 @@
             "legendary" : true,
             "legendNote": "This fish can only be caught in the Sewers.",
             "requiredLevel": 0
+        },
+
+        {
+            "id": 57,
+            "name": "Clam",
+            "description": "There's a chewy little guy in there...",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "crabpot" : true
+        },
+
+        {
+            "id": 58,
+            "name": "Lobster",
+            "description": "A large ocean-dwelling crustacean with a strong tail.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "crabpot" : true
+        },
+
+        {
+            "id": 59,
+            "name": "Crayfish",
+            "description": "A small freshwater relative of the lobster.",
+            "location": ["Desert", "Lake", "Mutant Bug Lair", "River", "Pond", "Secret Woods", "Waterfalls", "Witch's Swamp"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "crabpot" : true
+        },
+
+        {
+            "id": 60,
+            "name": "Crab",
+            "description": "A marine crustacean with two powerful pincers.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "crabpot" : true
+        },
+
+        {
+            "id": 61,
+            "name": "Cockle",
+            "description": "A common saltwater clam.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "crabpot" : true
+        },
+
+        {
+            "id": 62,
+            "name": "Mussel",
+            "description": "A common bivalve that often lives in clusters.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "crabpot" : true
+        },
+
+        {
+            "id": 63,
+            "name": "Shrimp",
+            "description": "A scavenger that feeds off the ocean floor. Widely prized for its meat.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "crabpot" : true
+        },
+
+        {
+            "id": 64,
+            "name": "Snail",
+            "description": "A wide-ranging mollusc that lives in a spiral shell.",
+            "location": ["Desert", "Lake", "Mutant Bug Lair", "River", "Pond", "Secret Woods", "Waterfalls", "Witch's Swamp"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "crabpot" : true
+        },
+
+        {
+            "id": 65,
+            "name": "Periwinkle",
+            "description": "A tiny freshwater snail that lives in a blue shell.",
+            "location": ["Desert", "Lake", "Mutant Bug Lair", "River", "Pond", "Secret Woods", "Waterfalls", "Witch's Swamp"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "crabpot" : true
+        },
+
+        {
+            "id": 66,
+            "name": "Oyster",
+            "description": "Constantly filters water to find food. In the process, it removes dangerous toxins from the environment.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "crabpot" : true
+        },
+
+        {
+            "id": 67,
+            "name": "Seaweed",
+            "description": "It can be used in cooking.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "other" : true
+        },
+
+        {
+            "id": 68,
+            "name": "Green Algae",
+            "description": "It's really slimy.'",
+            "location": ["Lake", "Desert", "Mines (Floor 100)", "Mines (Floor 20)", "Mines (Floor 60)", "Sewers", "Mutant Bug Lair", "Pond", "River", "Secret Woods", "Waterfalls", "Witch's Swamp"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "other" : true
+        }, 
+
+        {
+            "id": 69,
+            "name": "White Algae",
+            "description": "It's super slimy.'",
+            "location": ["Mines (Floor 100)", "Mines (Floor 20)", "Mines (Floor 60)", "Sewers", "Mutant Bug Lair", "Witch's Swamp"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "other" : true
+        }, 
+
+        {
+            "id": 70,
+            "name": "Sea Jelly",
+            "description": "A rare jelly found in the ocean.",
+            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "other" : true
+        },
+
+        {
+            "id": 71,
+            "name": "River Jelly",
+            "description": "A rare jelly found in freshwater.",
+            "location": ["Desert", "Lake", "Mutant Bug Lair", "River", "Pond", "Secret Woods", "Waterfalls", "Witch's Swamp"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "other" : true
+        },
+
+        {
+            "id": 72,
+            "name": "Cave Jelly",
+            "description": "A rare jelly found in underground lakes.",
+            "location": ["Mines (Floor 20)", "Mines (Floor 60)", "Mines (Floor 100)"],
+            "time": ["Anytime"],
+            "season": ["Spring", "Summer", "Fall", "Winter"],
+            "weather": ["Any"],
+            "difficulty": "0 None",
+            "other" : true
         }
     ]
 }
