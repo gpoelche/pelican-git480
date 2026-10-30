@@ -205,6 +205,7 @@ function toggleCatchStatus(e){
     console.log(localStorage.getItem("caughtFish"));
 }
 
+//TO-DO: Add location filtering
 //Function that updates DOM to show filtered fish in the card pool.
 //Updates on change to the form.
 function filteredSearch(e){
