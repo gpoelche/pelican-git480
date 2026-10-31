@@ -1,10 +1,16 @@
 /* George Poelcher - GIT 480 - Pelican - Prof. Storm */
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Momo+Trust+Sans:wght@200..800&display=swap');
 
 :root{
     --black: #303030;
     --white: #fbfbfb;
     --blue: #03045e;
     --cyan: #90e9ef;
+
+    --heading-font: "Momo Trust Display", sans-serif;
+    --body-font: "Momo Trust Sans", serif;
+
+    --body-color: var(--black);
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -57,6 +63,42 @@ table {
 }
 
 /* UNIVERSAL STYLES */
+.hidden{
+    display: none !important;
+}
+
+body, button, input, select{
+    line-height: 1.5;
+    font-family: var(--body-font);
+}
+
+
+h1, h2, h3, h4, h5{
+    font-family: var(--heading-font);
+}
+
+h1{
+    font-size: 2rem;
+}
+
+/* UNIVERSAL - HEADER STYLES */
+header a{
+    text-decoration: none;
+    color: var(--body-color);
+}
+
+/* INDEX - HERO */
+#hero{
+    background-image: url("/assets/images/bg/ocean.png");
+}
+
+#hero a{
+    text-decoration: none;
+    color: var(--body-color);
+}
+
+
+/* TRACKER - FISH CARD LIST STYLES */
 #cardList{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -69,18 +111,38 @@ table {
     color: var(--white);
     border-radius: 15px;
     padding: 20px;
+    position: relative;
 }
 
+/* TRACKER - FISH POPUP STYLES */
 .fish-popup{
     z-index: 10;
     justify-self: center;
     position: fixed;
-    bottom: 0;
+    top: 0;
     background: var(--black);
     color: var(--white);
-    padding: 300px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 300px;
+    padding: 00px 50px;
+    justify-content: center;
 }
 
-.hidden{
-    display: none;
+.fish-popup p{
+    max-width: 300px;
 }
+
+.fish-popup button:first-of-type{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.fish-popup > div{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
