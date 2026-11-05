@@ -138,6 +138,19 @@ header a{
     color: var(--body-text-color);
 }
 
+.theme-toggle, .menu-toggle, .menu-close{
+    background: var(--body-gradient);
+    
+}
+
+.theme-toggle:hover, .menu-toggle:hover, .menu-close:hover{
+    background: var(--body-gradient-hover);
+}
+
+.theme-toggle svg, .menu-toggle svg, .menu-close svg{
+    fill: var(--body-text-color);
+}
+
 /* UNIVERSAL - FOOTER STYLES */
 footer{
     text-align: center;
@@ -173,23 +186,20 @@ footer{
 /* TRACKER - FISH CARD LIST STYLES */
 #cardList{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .fish-card{
     display: flex;
     border-radius: 15px;
-    padding: 20px;
-    position: relative;
     background: var(--body-gradient);
     border: 1px solid var(--body-border);
-    transition: background 1s;
+    padding: 20px 40px;
 }
 
 .fish-card:hover{
     background: var(--body-gradient-hover);
-    transition: background 1s;
 }
 
 .fish-card img{
@@ -217,10 +227,6 @@ footer{
     justify-content: center;
     background-color: var(--body-bg-2);
 }
-
-/* .fish-popup div:not(.fish-popup div:first-of-type){
-    border-bottom: 1px solid var(--dark-border);
-} */
 
 .fish-popup h5{
     border-bottom: 1px solid var(--body-border);
@@ -250,6 +256,9 @@ footer{
     display: flex;
     flex-direction: column;
     place-self: center;
+    background: var(--body-bg-2);
+    padding: 100px;
+    border-radius: 20px;
 }
 
 #login form, #signup form{
@@ -261,4 +270,58 @@ footer{
 #login form div, #signup form div{
     display: flex;
     flex-direction: column;
+}
+
+/* MOBILE STYLES BEGINS */
+
+/* HEADER - MOBILE */
+
+.tracker-body nav, .index-body nav{
+    z-index: 11;
+    background: var(--body-gradient);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: -1000%;
+    align-content: center;
+}
+
+.show-menu{
+    left: 0;
+}
+
+.tracker-body nav .menu-close, .index-body nav .menu-close{
+    position: absolute;
+    right: 25px;
+    top: 15px;
+}
+
+.tracker-body nav ul, .index-body nav ul{
+    justify-self: center;
+}
+
+.tracker-body nav li, .index-body nav li{
+    margin-bottom: 15px;
+    width: 100vw;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--body-border);
+    background: var(--body-gradient);
+}
+
+/* TABLET (min-width: 768px) */
+@media (min-width: 768px) {
+    
+    /* HEADER - NAVIGATION MENU */
+    .menu-toggle{
+        display: none;
+    }
+
+    nav{
+        z-index: 0;
+        position: relative;
+        display: flex;
+    }
 }
