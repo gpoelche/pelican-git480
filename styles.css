@@ -314,14 +314,45 @@ footer{
 /* TABLET (min-width: 768px) */
 @media (min-width: 768px) {
     
+    /* HEADER */
+    header{
+        display: flex;
+        flex-direction: row;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
     /* HEADER - NAVIGATION MENU */
-    .menu-toggle{
+    .menu-toggle, .menu-close{
         display: none;
     }
 
-    nav{
-        z-index: 0;
-        position: relative;
-        display: flex;
+    /* Essentially undoing and resetting all of the styles that made the mobile nav menu work. Reset back to default before adusting. */
+    .tracker-body nav, .index-body nav{
+        position: static;
+        width: auto;
+        height: auto;
+        z-index: auto;
+        align-content: normal;
+        background: none;
     }
+
+    .tracker-body nav ul, .index-body nav ul{
+        justify-self: normal;
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        align-self: center;
+    }
+
+    .tracker-body nav li, .index-body nav li{
+        margin-bottom: 0;
+        width: auto;
+        padding: 0;
+        text-align: left;
+        text-transform: none;
+        border-bottom: none;
+        background: none;
+}   
+
 }
