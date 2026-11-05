@@ -683,7 +683,7 @@
             "id": 61,
             "name": "Cockle",
             "description": "A common saltwater clam.",
-            "location": ["Ocean", "Ginger Island (Ocean)"],
+            "location": ["Ocean", "Ginger Island (Ocean)", ""],
             "time": ["Anytime"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
