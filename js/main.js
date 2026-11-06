@@ -98,7 +98,7 @@ function loadCards(data){
 
     //Assign event listeners to all of the toggleCatch and showDetail buttons.
     //These need attached every time this section is rerendered since the DOM is alread loaded.
-    for(let button of document.querySelectorAll(".detail-button")){
+    for(let button of document.querySelectorAll(".fish-card")){
         button.addEventListener("click", showFishDetails);
     }
 
@@ -110,7 +110,8 @@ function loadCards(data){
 //A quick helper function that makes creating fish cards easier. I ended up making this because I was having trouble making changes to the fish cards since I do this in a few places.
 //This will make creating future adjustments to the fish cards much simpler since it's all in one place.
 function createFishCard(id, fish){
-    return `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button></div></section>`;
+    return `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><div><button class="catch-button">Set to Caught</button></div></section>`;
+    // return `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button></div></section>`;
 }
 
 // Shows all relevant details that are not initially shown in the pool of cards.
@@ -163,6 +164,10 @@ function showFishDetails(e){
 
 //Function that toggles a fish's caught status. Status is toggled and the count for the user's caught fish total is updated.
 function toggleCatchStatus(e){
+    //Since I've moved the listener for showFishDetails to attach to the parent card itself, the status toggle button was opening the popup window.
+    //Using this built-in function to manually stop bubbling on the event listener, which fixes this issue.
+    e.stopPropagation();
+
     let id;
 
     //Fish ID is pulled differently depending on which container the event comes from.
