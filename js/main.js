@@ -50,7 +50,7 @@ function loadCards(data){
         //This is done by checking to see if the first index at data is an array or not.
         if(Array.isArray(data[0])){
             for(let [id, fish] of data){
-                temp += `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button></div></section>`;
+                temp += createFishCard(id, fish);
             }   
         }
 
@@ -58,7 +58,7 @@ function loadCards(data){
         //This lets the user load all fish again without having to run goFish and make an async call to the appData file.
         else{
             for(let id of data){
-                temp += `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${fishMap.get(id).name}</h3><p>${fishMap.get(id).description}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button></div></section>`;
+                temp += createFishCard(id, fishMap.get(id));
             }
         }
     }
@@ -68,7 +68,7 @@ function loadCards(data){
         for(let card of data.fish){
 
             //Loading each fish into a card on the screen
-            temp += `<section data-fish-id="${card.id}" class="fish-card"><img src="./assets/images/fish/${card.id}.png"><div><h3>${card.name}</h3><p>${card.description}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button></div></section>`;
+            temp += createFishCard(card.id, card);
 
             //Mapping the indexes of the JSON to a Map, which will make searching for each fish much easier when needing to display fish cards.
             //Legendary fish have unique identifying fields, so these must be added in a seperate declaration from normal fish.
@@ -105,6 +105,12 @@ function loadCards(data){
     for(let button of document.querySelectorAll(".catch-button")){
         button.addEventListener("click", toggleCatchStatus);
     }
+}
+
+//A quick helper function that makes creating fish cards easier. I ended up making this because I was having trouble making changes to the fish cards since I do this in a few places.
+//This will make creating future adjustments to the fish cards much simpler since it's all in one place.
+function createFishCard(id, fish){
+    return `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button></div></section>`;
 }
 
 // Shows all relevant details that are not initially shown in the pool of cards.

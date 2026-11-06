@@ -200,6 +200,7 @@ footer{
 
 .fish-card:hover{
     background: var(--body-gradient-hover);
+    cursor: pointer;
 }
 
 .fish-card img{
