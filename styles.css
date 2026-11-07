@@ -169,7 +169,7 @@ header a{
 
 /* UNIVERSAL - HERO */
 #hero{
-    background: linear-gradient(180deg,rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.75) 100%), url(./assets/images/hero.png);
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.75) 100%), url(assets/images/hero.png);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-position: 50% 75%;
