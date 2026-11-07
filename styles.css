@@ -16,7 +16,8 @@
     --dark-bg-gradient-hover: linear-gradient(0deg, var(--dark-bg-2), var(--dark-bg-3));
     --dark-border: oklch(0.4 0.2 208);
 
-    --dark-text-1: oklch(0.96 0.1 208);
+    /* --dark-text-1: oklch(0.96 0.1 208); */
+    --dark-text-1: oklch(95.526% 0.03021 196.857);
     --dark-text-2: oklch(0.76 0.1 208);
 
 
@@ -35,6 +36,8 @@
 
     --heading-font: "Momo Trust Display", sans-serif;
     --body-font: "Momo Trust Sans", serif;
+
+    --button-corner: 10px;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -92,6 +95,11 @@ table {
     display: none !important;
 }
 
+/* TO-DO: Create light mode theme by changing variables used in certain root values */
+.light{
+    display: none;
+}
+
 body{
     background: var(--body-bg-1);
     color: var(--body-text-color);
@@ -128,6 +136,11 @@ h5{
     font-size: 1.15rem;
 }
 
+h1, .index-body h2, .index-body h3, .index-body main p, .index-body main a{
+    margin: 0px 50px;
+}
+
+
 /* UNIVERSAL - HEADER STYLES */
 header{
     background-color: var(--body-bg-2);
@@ -138,17 +151,29 @@ header a{
     color: var(--body-text-color);
 }
 
-.theme-toggle, .menu-toggle, .menu-close{
+/* UNIVERSAL - SVG BUTTON STYLES */
+.theme-toggle, .menu-toggle, .menu-close, .popup-close{
     background: var(--body-gradient);
     
 }
 
-.theme-toggle:hover, .menu-toggle:hover, .menu-close:hover{
+.theme-toggle:hover, .menu-toggle:hover, .menu-close:hover, .popup-close:hover{
     background: var(--body-gradient-hover);
 }
 
-.theme-toggle svg, .menu-toggle svg, .menu-close svg{
+.theme-toggle svg, .menu-toggle svg, .menu-close svg, .popup-close svg{
     fill: var(--body-text-color);
+}
+
+/* UNIVERSAL - MAIN STYLES */
+
+/* UNIVERSAL - HERO */
+#hero{
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.75) 100%), url(/assets/images/hero.png);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: 50% 75%;
+    padding: 200px 0px;
 }
 
 /* UNIVERSAL - FOOTER STYLES */
@@ -157,7 +182,7 @@ footer{
 }
 
 /* INDEX - GENERAL */
-.index-body section{
+.index-body section:not(.index-body section:first-of-type){
     margin: 25px 0px;
 }
 
@@ -183,6 +208,36 @@ footer{
     color: var(--body-text-color);
 }
 
+#filtersWrapper div:first-of-type fieldset{
+    margin-bottom: 20px;
+}
+
+.dropdown-div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.dropdown-div label, #filtersWrapper div:first-of-type legend{
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+
+select, input[type=text]{
+    font-size: 1rem;
+    padding: 5px 0;
+    background-color: var(--body-bg-3);
+    color: var(--body-font);
+    border: 1px solid var(--body-border);
+    border-radius: 5px;
+    width: 300px;
+}
+
+input[type=text]{
+    padding-left: 10px;
+}
+
 /* TRACKER - FISH CARD LIST STYLES */
 #cardList{
     display: grid;
@@ -196,6 +251,12 @@ footer{
     background: var(--body-gradient);
     border: 1px solid var(--body-border);
     padding: 20px 40px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.was-caught{
+    background: green;
 }
 
 .fish-card:hover{
@@ -204,12 +265,11 @@ footer{
 }
 
 .fish-card img{
-    margin-right: 15px;
     height: 50px;
     width: 50px;
 }
 
-.fish-card button{
+.catch-button{
     background-color: var(--body-bg-3);
     color: var(--body-text-color);
 }
@@ -239,12 +299,21 @@ footer{
 
 .fish-popup button{
     background: var(--body-bg-3);
+    color: var(--body-font);
 }
 
 .fish-popup button:first-of-type{
     position: absolute;
     top: 30px;
     right: 30px;
+}
+
+#popupStatus{
+    height: 80px;
+}
+
+#popupStatus:hover{
+    background: var(--body-gradient-hover);
 }
 
 .fish-popup > div{
@@ -281,8 +350,8 @@ footer{
     z-index: 11;
     background: var(--body-gradient);
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
     top: 0;
     right: -1000%;
     align-content: center;
@@ -292,7 +361,7 @@ footer{
     left: 0;
 }
 
-.tracker-body nav .menu-close, .index-body nav .menu-close{
+.tracker-body nav .menu-close, .index-body nav .menu-close, #filtersWrapper .menu-close{
     position: absolute;
     right: 25px;
     top: 15px;
@@ -312,6 +381,35 @@ footer{
     background: var(--body-gradient);
 }
 
+/* TRACKER - MOBILE */
+.tracker-body h2{
+    display: none;
+}
+
+#progressDiv{
+    text-align: center;
+    margin: 50px 0;
+}
+
+#progressDiv p{
+    font-size: 1.5rem;
+}
+
+#openFilters{
+    margin-top: 25px;
+}
+
+#filtersWrapper{
+    z-index: 11;
+    background: var(--body-gradient);
+    position: fixed;
+    width: 100dvw;
+    height: 100dvh;
+    top: 0;
+    right: -1000%;
+    align-content: center;
+}
+
 /* TABLET (min-width: 768px) */
 @media (min-width: 768px) {
     
@@ -321,6 +419,7 @@ footer{
         flex-direction: row;
         padding-top: 25px;
         padding-bottom: 25px;
+        align-items: center;
     }
 
     /* HEADER - NAVIGATION MENU */

@@ -11,12 +11,9 @@ async function goFish(){
     let data = await fetch("./assets/json/appData.json");
     let fishData = await data.json();
 
-    //Call loadCards with 
-    loadCards(fishData);
-
-    //Checks to see if the user has previously registered fish as caught in localStorage.
-    //If so, data stored in localStorage are entered into the caughtFish array.
-    //Values must be casted as Numbers with map() or the toggleCatch function will not work properly.
+    //Now checks to see if fish is in localStorage before loading cards
+    //loadCards now updates button text and applies special stylings through ternary conditionals
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator
     if(localStorage.getItem("caughtFish")){
         caughtFish.length = 0;
         let temp = localStorage.getItem("caughtFish").split(",").map(Number);
@@ -24,15 +21,19 @@ async function goFish(){
             caughtFish.push(f);
         }
 
-        //Setting proper labels for toggle buttons on fish stored in the user's local storage
-        for(let id of caughtFish){
-            document.querySelector('[data-fish-id="' + id + '"]').querySelector(".catch-button").textContent = "Set to Uncaught";
-        }
-        
-        //Update the fish count and set the total quantity of fish available.
-        document.querySelector("#fishCount").textContent = caughtFish.length;
-        document.querySelector("#fishTotal").textContent = fishMap.size;
+        console.log(caughtFish);
     }
+
+    //Call loadCards with 
+    loadCards(fishData);
+
+    //Checks to see if the user has previously registered fish as caught in localStorage.
+    //If so, data stored in localStorage are entered into the caughtFish array.
+    //Values must be casted as Numbers with map() or the toggleCatch function will not work properly.
+
+    //Update the fish count and set the total quantity of fish available.
+    document.querySelector("#fishCount").textContent = caughtFish.length;
+    document.querySelector("#fishTotal").textContent = fishMap.size;
 }
 
 //Function that receives a datatype to load fish cards from
@@ -110,7 +111,10 @@ function loadCards(data){
 //A quick helper function that makes creating fish cards easier. I ended up making this because I was having trouble making changes to the fish cards since I do this in a few places.
 //This will make creating future adjustments to the fish cards much simpler since it's all in one place.
 function createFishCard(id, fish){
-    return `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><div><button class="catch-button">Set to Caught</button></div></section>`;
+
+    // TO-DO: Integrate was-caught class to read caught fish cards as green when loaded in and toggled.
+    let wasCaught = caughtFish.includes(id);
+    return `<section data-fish-id="${id}" class="fish-card${wasCaught ? "" : ""}"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><button class="catch-button">${wasCaught ? "Set to Uncaught" : "Set to Caught"}</button></section>`;
     // return `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button></div></section>`;
 }
 
@@ -187,7 +191,7 @@ function toggleCatchStatus(e){
     let buttonText = "";
 
     //If fish is caught, remove from the caughtFish array and toggle status
-     if(caughtFish.includes(id)){
+    if(caughtFish.includes(id)){
             caughtFish.splice(caughtFish.indexOf(id), 1);
             buttonText = "Set to Caught";
     }
@@ -306,7 +310,8 @@ document.querySelector("#popupStatus").addEventListener("click", toggleCatchStat
 document.querySelector("#filters form").addEventListener("change", filteredSearch);
 
 // Event listener that resets the filter forms and reloads all normal cards into the fish card pool.
-document.querySelector("#resetButton").addEventListener("click", function(){
+document.querySelector("#resetButton").addEventListener("click", function(e){
+    e.preventDefault();
     document.querySelector("form").reset();
     loadCards(allFishId);
 });

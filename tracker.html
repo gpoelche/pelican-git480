@@ -62,71 +62,72 @@
 
             <section id="filters">
                 <form action="#">
-                    <div>
+                    <div id="progressDiv">
                         <p>Progress</p>
-                        <p><span id="fishCount">0</span>/<span id="fishTotal">0</span> Fish Caught</p>
+                        <p><span id="fishCount">0</span>/<span id="fishTotal">72</span> Fish Caught</p>
+                        <button id="openFilters">Adjust Search Filters</button>
                     </div>
 
-                    <div>
-                        <fieldset>
-                            <legend>Catch Status</legend>
+                    <div id="filtersWrapper">
+                        <button class="menu-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#e3e3e3"><path d="M6.4,19L5,17.6L10.6,12L5,6.4L6.4,5L12,10.6L17.6,5L19,6.4L13.4,12L19,17.6L17.6,19L12,13.4L6.4,19Z"/></svg></button>
+                        <div>
+                            <fieldset>
+                                <legend>Catch Status</legend>
 
-                            <div>
-                                <input type="radio" name="caught" id="allFish" value="allFish" checked>
-                                <label for="allFish">All Fish</label>
-                            </div>
+                                <div class="radio-div">
+                                    <input type="radio" name="caught" id="allFish" value="allFish" checked>
+                                    <label for="allFish">All Fish</label>
+                                </div>
 
-                            <div>
-                                <input type="radio" name="caught" id="caughtOnly" value="caughtOnly">
-                                <label for="caughtOnly">Caught</label>
-                            </div>
+                                <div class="radio-div">
+                                    <input type="radio" name="caught" id="caughtOnly" value="caughtOnly">
+                                    <label for="caughtOnly">Caught</label>
+                                </div>
 
-                            <div>
-                                <input type="radio" name="caught" id="uncaughtOnly" value="uncaughtOnly">
-                                <label for="uncaughtOnly">Uncaught</label>
-                            </div>
-                        </fieldset>
+                                <div class="radio-div">
+                                    <input type="radio" name="caught" id="uncaughtOnly" value="uncaughtOnly">
+                                    <label for="uncaughtOnly">Uncaught</label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div>
+                            <fieldset>
+                                <!-- TO-DO: COMPLETE LIST OF LOCATIONS TO FILTER FROM -->
+                                <div class="dropdown-div">
+                                    <label for="location">Location</label>
+                                    <select name="location" id="location">
+                                        <option value="all">Anywhere</option>
+                                        <option value="town">Pelican Town</option>
+                                    </select>
+                                </div>
+
+                                <div class="dropdown-div">
+                                    <label for="season">Season</label>
+                                    <select name="season" id="season">
+                                        <option value="All">Any Season</option>
+                                        <option value="Spring">Spring</option>
+                                        <option value="Summer">Summer</option>
+                                        <option value="Fall">Fall</option>
+                                        <option value="Winter">Winter</option>
+                                    </select>
+                                </div>
+
+                                <!-- TO-DO: COMPLETE LIST OF WEATHER CONDITIONS TO FILTER FROM -->
+                                <div class="dropdown-div">
+                                    <label for="weather">Weather Condition</label>
+                                    <select name="weather" id="weather">
+                                        <option value="All">Any</option>
+                                        <option value="Sunny">Sunny</option>
+                                        <option value="Rainy">Rainy</option>
+                                    </select>
+                                </div>
+
+                            </fieldset>
+                        </div>
+
+                        <button id="resetButton">Reset Filters</button>
                     </div>
-
-                    <div>
-                        <fieldset>
-                            <legend>Trait Filters</legend>
-
-                            <!-- TO-DO: COMPLETE LIST OF LOCATIONS TO FILTER FROM -->
-                            <div>
-                                <label for="location">Location</label>
-                                <select name="location" id="location">
-                                    <option value="all">Anywhere</option>
-                                    <option value="town">Pelican Town</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="season">Season</label>
-                                <select name="season" id="season">
-                                    <option value="All">Any Season</option>
-                                    <!-- <option value="yearly">Yearly</option> -->
-                                    <option value="Spring">Spring</option>
-                                    <option value="Summer">Summer</option>
-                                    <option value="Fall">Fall</option>
-                                    <option value="Winter">Winter</option>
-                                </select>
-                            </div>
-
-                            <!-- TO-DO: COMPLETE LIST OF WEATHER CONDITIONS TO FILTER FROM -->
-                            <div>
-                                <label for="weather">Weather Condition</label>
-                                <select name="weather" id="weather">
-                                    <option value="All">Any</option>
-                                    <option value="Sunny">Sunny</option>
-                                    <option value="Rainy">Rainy</option>
-                                </select>
-                            </div>
-
-                        </fieldset>
-                    </div>
-
-                    <button id="resetButton">Reset Filters</button>
                 </form>
             </section>
 
@@ -136,7 +137,7 @@
 
             <!-- Main pop-up dialog box for showing the user more details on the fish they've selected on the page. -->
             <div class="fish-popup hidden">
-                <button>Close Window</button>
+                <button class="popup-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#e3e3e3"><path d="M6.4,19L5,17.6L10.6,12L5,6.4L6.4,5L12,10.6L17.6,5L19,6.4L13.4,12L19,17.6L17.6,19L12,13.4L6.4,19Z"/></svg></button>
 
                 <div>
                     <img src="" alt="">
