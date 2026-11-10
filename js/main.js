@@ -152,10 +152,22 @@ function showFishDetails(e){
     }
 
     popupWindow.querySelector("#seasonList").innerHTML = "";
-    for(let season of targetFish.season){
+
+    //Check to see if fish is available all year. If so, only load one item into the seasons list.
+    //This is to help reduce the length of content loaded in the popup.
+    //Certain fish were causing the window to be too filled with information.
+    if(targetFish.season.length == 4){
         let temp = document.createElement("li");
-        temp.textContent = season;
+        temp.textContent = "All Year";
         popupWindow.querySelector("#seasonList").appendChild(temp);
+    }
+
+    else{
+        for(let season of targetFish.season){
+            let temp = document.createElement("li");
+            temp.textContent = season;
+            popupWindow.querySelector("#seasonList").appendChild(temp);
+        }
     }
 
     popupWindow.querySelector("#weatherList").innerHTML = "";

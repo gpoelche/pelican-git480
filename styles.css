@@ -329,6 +329,11 @@ input[type=text]{
     padding-left: 10px;
 }
 
+input[type^=radio]{
+    height: 20px;
+    width: 20px;
+}
+
 /* TRACKER - FISH CARD LIST STYLES */
 #cardList{
     display: grid;
@@ -514,6 +519,18 @@ input[type=text]{
 
 #filtersWrapper select{
     width: 80%;
+}
+
+#filtersWrapper div:first-of-type legend{
+    margin-bottom: 10px;
+}
+
+.radio-div{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    gap: 10px;
 }
 
 /* TABLET (min-width: 768px) */
