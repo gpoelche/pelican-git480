@@ -38,6 +38,7 @@
     --body-font: "Momo Trust Sans", serif;
 
     --button-corner: 10px;
+    --card-corner: 20px;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -125,30 +126,44 @@ h2{
 }
 
 h3{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 h4{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 h5{
     font-size: 1.15rem;
 }
 
-h1, .index-body h2, .index-body h3, .index-body main p, .index-body main a{
+.index-body h2, .index-body h3, .index-body main p, .index-body main a{
     margin: 0px 50px;
 }
 
 
 /* UNIVERSAL - HEADER STYLES */
 header{
-    background-color: var(--body-bg-2);
+    background-color: var(--body-bg-1);
+    border-bottom: 1px solid var(--body-border);
 }
 
 header a{
     text-decoration: none;
     color: var(--body-text-color);
+}
+
+#headerLogo{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-left: 50px;
+}
+
+#headerLogo svg{
+    height: 50px;
+    width: 50px;
+    fill: var(--body-text-color);
 }
 
 /* UNIVERSAL - SVG BUTTON STYLES */
@@ -169,7 +184,7 @@ header a{
 
 /* UNIVERSAL - HERO */
 #hero{
-    background: linear-gradient(180deg,rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.75) 100%), url(assets/images/hero.png);
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.85) 100%), url(assets/images/hero.png);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-position: 50% 75%;
@@ -179,29 +194,105 @@ header a{
 /* UNIVERSAL - FOOTER STYLES */
 footer{
     text-align: center;
+    padding: 60px 20px;
 }
 
 /* INDEX - GENERAL */
 .index-body section:not(.index-body section:first-of-type){
-    margin: 25px 0px;
+    padding: 40px 0px;
 }
 
-/* INDEX - HERO */
+.index-body h2{
+    margin-bottom: 15px;
+}
+
+#hero div{
+    margin-bottom: 40px;
+}
+
 #hero a{
     text-decoration: none;
-    color: var(--body-color);
+    font-size: 1.5rem;
+    background: var(--body-gradient);
+    color: var(--body-text-color);
+    padding: 20px;
+    border-radius: var(--button-corner);
+    border: 1px solid var(--body-text-color);
+    font-family: var(--heading-font);
+}
+
+#hero a:hover{
+    background: var(--body-gradient-hover);
+}
+
+/* INDEX - ABOUT */
+#about{
+    background-color: var(--body-bg-1);
+}
+
+/* INDEX - ONEPLACE */
+#onePlace{
+    background-color: var(--body-bg-2);
 }
 
 /* INDEX - FUTURE */
-#futureCards{
-    display: flex;
-    flex-direction: row;
+#future{
+    background-color: var(--body-bg-3);
 }
 
-#futureCards img{
-    height: 75px;
-    width: 75px;
+#futureCards{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
 }
+
+.future-card{
+    background: var(--body-gradient);
+    padding: 20px;
+    border-radius: var(--card-corner);
+    border: 1px solid var(--body-border);
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+.future-card:hover{
+    background: var(--body-gradient-hover);
+}
+
+.future-card svg{
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin: 0 auto 10px;
+    fill: var(--body-text-color);
+}
+
+/* INDEX - IMPROVE */
+#improve{
+    background-color: var(--body-bg-2);
+}
+
+#improve div{
+    margin-bottom: 40px;
+}
+
+#improve a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    background: var(--body-gradient);
+    color: var(--body-text-color);
+    padding: 20px;
+    border-radius: var(--button-corner);
+    border: 1px solid var(--body-text-color);
+    font-family: var(--heading-font);
+}
+
+#improve a:hover{
+    background: var(--body-gradient-hover);
+}
+
 
 /* TRACKER - FILTER SECTION STYLES */
 #filters label{
@@ -277,14 +368,13 @@ input[type=text]{
 /* TRACKER - FISH POPUP STYLES */
 .fish-popup{
     z-index: 10;
-    justify-self: center;
     position: fixed;
     top: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    min-width: 300px;
-    padding: 00px 50px;
+    height: 100dvh;
+    width: 50dvw;
+    padding: 0px 30px;
     justify-content: center;
     background-color: var(--body-bg-2);
 }
@@ -345,21 +435,36 @@ input[type=text]{
 /* MOBILE STYLES BEGINS */
 
 /* HEADER - MOBILE */
+.index-body header, .tracker-body header, .login-body header, .signup-body header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.index-body #navButtons, .tracker-body #navButtons, .login-body #navButtons, .signup-body #navButtons{
+    margin-left: auto;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
 
 .tracker-body nav, .index-body nav{
     z-index: 11;
     background: var(--body-gradient);
     position: fixed;
-    width: 100dvw;
+    width: 50dvw;
     height: 100dvh;
     top: 0;
     right: -1000%;
-    align-content: center;
+    border-right: 1px solid var(--body-border);
 }
 
 .show-menu{
     left: 0;
 }
+
 
 .tracker-body nav .menu-close, .index-body nav .menu-close, #filtersWrapper .menu-close{
     position: absolute;
@@ -368,17 +473,12 @@ input[type=text]{
 }
 
 .tracker-body nav ul, .index-body nav ul{
-    justify-self: center;
+    position: fixed;
+    top: 100px;
 }
 
 .tracker-body nav li, .index-body nav li{
-    margin-bottom: 15px;
-    width: 100vw;
     padding: 20px;
-    text-align: center;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--body-border);
-    background: var(--body-gradient);
 }
 
 /* TRACKER - MOBILE */
@@ -403,11 +503,17 @@ input[type=text]{
     z-index: 11;
     background: var(--body-gradient);
     position: fixed;
-    width: 100dvw;
+    width: 50dvw;
     height: 100dvh;
     top: 0;
     right: -1000%;
     align-content: center;
+    border-right: 1px solid var(--body-border);
+    padding-left: 20px;
+}
+
+#filtersWrapper select{
+    width: 80%;
 }
 
 /* TABLET (min-width: 768px) */
@@ -415,8 +521,6 @@ input[type=text]{
     
     /* HEADER */
     header{
-        display: flex;
-        flex-direction: row;
         padding-top: 25px;
         padding-bottom: 25px;
         align-items: center;
@@ -435,6 +539,8 @@ input[type=text]{
         z-index: auto;
         align-content: normal;
         background: none;
+        margin-right: 50px;
+        border-right: none;
     }
 
     .tracker-body nav ul, .index-body nav ul{
@@ -443,6 +549,8 @@ input[type=text]{
         flex-direction: row;
         gap: 40px;
         align-self: center;
+        position: static;
+        top: auto;
     }
 
     .tracker-body nav li, .index-body nav li{
@@ -453,6 +561,7 @@ input[type=text]{
         text-transform: none;
         border-bottom: none;
         background: none;
-}   
+    }
+
 
 }
