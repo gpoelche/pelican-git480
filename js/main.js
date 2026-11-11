@@ -131,6 +131,7 @@ function createFishCard(id, fish){
 // Shows all relevant details that are not initially shown in the pool of cards.
 function showFishDetails(e){
     document.querySelector(".fish-popup").classList.remove("hidden");
+    document.querySelector("#menuBlur").classList.remove("hidden");
     document.querySelector(".fish-popup button:last-of-type").innerHTML = checkSvg;
     
     //Uses the button to find the card the button was pressed in. Then uses the custom dataset attribute containing the fish ID for the map search.
@@ -241,7 +242,6 @@ function toggleCatchStatus(e){
     console.log(localStorage.getItem("caughtFish"));
 }
 
-//TO-DO: Add location filtering
 //Function that updates DOM to show filtered fish in the card pool.
 //Updates on change to the form.
 function filteredSearch(e){
@@ -272,59 +272,63 @@ function filteredSearch(e){
             break;
     }
 
-    //Filter #2 - Location :: TO-DO
-    //Location data must be normalized and the appData file must be finalized first.
-    //Need to find a way to organize locations that makes sense despite the various locations each fish has.
+    //Filter #2 - Location
+    //Checks first to see if location is specified. There are three locations that have sub areas that are grouped together in filtered search.
+    //If filter isn't set to one of those three, performs simple filter and returns.
+    if(locationFilter != "all"){
+        //Performs simple filter if not one of the three areas below
+        if(locationFilter != "The Mines" && locationFilter != "Ginger Island" && locationFilter != "Sewer"){
+            filterArray = filterArray.filter(([id, fish]) => fish.location.includes(locationFilter));
+            alert(`Normal case is running, ${locationFilter} selected:`);
+        }
+
+        //These filters have sub-areas attached, which this switch case then handles the filtered search for.
+        else{
+            switch(locationFilter){
+                case "The Mines":
+                    filterArray = filterArray.filter(([id, fish]) => fish.location.includes("The Mines") || fish.location.includes("The Mines (Floor 20)") || fish.location.includes("The Mines (Floor 60)") || fish.location.includes("The Mines (Floor 100)"));
+                    alert("Returning The Mines");
+                    break;
+
+                case "Sewer":
+                    filterArray = filterArray.filter(([id, fish]) => fish.location.includes("Sewers") || fish.location.includes("Mutant Bug Lair"));
+                    alert("Returning Sewers");
+                    break;
+
+
+                case "Ginger Island":
+                    filterArray = filterArray.filter(([id, fish]) => fish.location.includes("Ginger Island (Ocean)") || fish.location.includes("Ginger Island (Volcano Caldera)") || fish.location.includes("Ginger Island (River)") || fish.location.includes("Ginger Island (Pirate Cove)"));
+                    alert("Returning Ginger Island");
+                    break;
+                
+                }  
+        }
+    }
+
 
     //Filter #3 - Season(s)
-    //Checks for specific season cases to filter fish out from the array.
-    //If no season is applied, no filter is placed and this case loop breaks.
-    switch(seasonFilter){
-        case "Spring":
-            filterArray = filterArray.filter(([id, fish]) => fish.season.includes("Spring"));
-            break;
-
-        case "Summer":
-            filterArray = filterArray.filter(([id, fish]) => fish.season.includes("Summer"));
-            break;
-
-        case "Fall":
-            filterArray = filterArray.filter(([id, fish]) => fish.season.includes("Fall"));
-            break;
-
-        case "Winter":
-            filterArray = filterArray.filter(([id, fish]) => fish.season.includes("Winter"));
-            break;
-        
-        default:
-            break;
+    //Begins simple filter search on array when the filter value isn't all
+    //Filters for selected season.
+    if(seasonFilter != "all"){
+        filterArray = filterArray.filter(([id, fish]) => fish.season.includes(seasonFilter));
     }
 
     //Filter #4 - Weather
-    //Checks to see if fish are caught in specific conditions.
-    //This also includes fish that are caught in any condition since any is separate from sunny or rainy but applies also to both.
-    //A fish with any only holds that value, which technically satisfies both rainy and sunny.
-    switch(weatherFilter){
-        case "Sunny":
-            filterArray = filterArray.filter(([id, fish]) => fish.weather.includes("Sunny") || fish.weather.includes("Any"));
-            break;
-
-        case "Rainy":
-            filterArray = filterArray.filter(([id, fish]) => fish.weather.includes("Rainy") || fish.weather.includes("Any"));
-            break;
-
-        default:
-            break;
+    //Begins simple filter search on array when the filter value isn't all
+    //Filters for selected weather.
+    if(weatherFilter != "all"){
+        filterArray = filterArray.filter(([id, fish]) => fish.weather.includes(weatherFilter));
+        alert(`Searching for ${weatherFilter} fish:`);
     }
 
-    //Calls loadCards with an array of IDs that match the search conditions of the applied filters
-    //loadCards displays the filtered fish to the DOM.
+    //Calls loadCards to reload the DOM with fish cards matching the filtered array ID values
     loadCards(filterArray);
 }
 
 //Allows the pop-up window to close when the close window button is clicked.
 document.querySelector(".fish-popup button:first-of-type").addEventListener("click", function(){
     document.querySelector(".fish-popup").classList.add("hidden");
+    document.querySelector("#menuBlur").classList.add("hidden");
 });
 
 document.querySelector("#popupStatus").addEventListener("click", toggleCatchStatus);
