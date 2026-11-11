@@ -303,7 +303,6 @@ function filteredSearch(e){
     //Filters for selected weather.
     if(weatherFilter != "all"){
         filterArray = filterArray.filter(([id, fish]) => fish.weather.includes(weatherFilter));
-        alert(`Searching for ${weatherFilter} fish:`);
     }
 
     //Calls loadCards to reload the DOM with fish cards matching the filtered array ID values

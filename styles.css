@@ -199,6 +199,7 @@ header a{
 footer{
     text-align: center;
     padding: 60px 20px;
+    border-top: 1px solid var(--body-border);
 }
 
 /* INDEX - GENERAL */
@@ -297,6 +298,10 @@ footer{
     background: var(--body-gradient-hover);
 }
 
+/* TRACKER BEGINS */
+.tracker-body main{
+    background-color: var(--body-bg-3);
+}
 
 /* TRACKER - FILTER SECTION STYLES */
 #filters label{
@@ -539,7 +544,8 @@ input[type^=radio]{
 
 #progressDiv{
     text-align: center;
-    margin: 50px 0;
+    margin-bottom: 50px;
+    padding-top: 50px;
 }
 
 #progressDiv p{
@@ -590,7 +596,7 @@ input[type^=radio]{
     }
 
     /* HEADER - NAVIGATION MENU */
-    .menu-toggle, .menu-close{
+    .menu-toggle, .menu-close:not(#filtersWrapper .menu-close){
         display: none;
     }
 
@@ -631,5 +637,74 @@ input[type^=radio]{
 
 /* TRACKER - LARGER SCREENS */
 @media (min-width: 1300px){
+    #filtersWrapper{
+        position: static;
+        width: auto;
+        height: auto;
+        z-index: auto;
+        padding-left: 0;
+        background: none;
+        border-right: none;
+    }
 
+    #filtersWrapper .menu-close{
+        display: none;
+    }
+
+    #filtersWrapper div:first-of-type fieldset{
+        margin: 0;
+    }
+
+    #filtersWrapper > div{ 
+        margin-bottom: 20px;
+    }
+
+    #filtersWrapper select{
+        width: auto;
+    }
+
+    #progressDiv{
+        position: static;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    #progressDiv p{
+        font-size: 1.15rem;
+        font-style: italic;
+    }
+
+    #openFilters{
+        display: none;
+    }
+
+    #resetButton{
+        width: 100%;
+    }
+
+    .tracker-body main{
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        height: calc(100dvh - 30px);
+    }
+
+    #filters{
+        overflow-y: auto;
+        background-color: var(--body-bg-2);
+        border-right: 1px solid var(--body-border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+    }
+
+    #cardList{
+        overflow-y: scroll;
+        scrollbar-color: var(--body-text-color) var(--body-bg-3);
+        padding-right: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
