@@ -4,6 +4,10 @@ const fishMap = new Map(); //Map that holds all fish details from appData. Impor
 const caughtFish = []; //Array that holds all of the users' currently caught fish by ID.
 const allFishId = []; //Array that holds IDs of every fish. Used for resetting the cards shown in the DOM.
 
+// SVGs that are used consistently for catch button visual status indicator. These are dynamically adjusted as the user toggles the catch status of each fish.
+const xSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#e3e3e3"><path d="M6.4,19L5,17.6L10.6,12L5,6.4L6.4,5L12,10.6L17.6,5L19,6.4L13.4,12L19,17.6L17.6,19L12,13.4L6.4,19Z"/></svg>';
+const checkSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#e3e3e3"><path d="M9.55,18l-5.7-5.7l1.43-1.42l4.28,4.28l9.18-9.18L20.15,7.4L9.55,18Z"/></svg>';
+
 //Function for initializing the webapp on page open.
 //Reads in user save data from localStorage and initializes Map data and loads all fish through loadCards.
 async function goFish(){
@@ -93,7 +97,8 @@ function loadCards(data){
     //Will throw a type error when performing the textContent adjustment on an item that doesn't exist in DOM.
     for(let id of caughtFish){
             if(document.querySelector('[data-fish-id="' + id + '"]') != null){
-                document.querySelector('[data-fish-id="' + id + '"]').querySelector(".catch-button").textContent = "Set to Uncaught";
+                // document.querySelector('[data-fish-id="' + id + '"]').querySelector(".catch-button").textContent = "Set to Uncaught";
+                document.querySelector('[data-fish-id="' + id + '"]').querySelector(".catch-button").innerHTML = xSvg;
             }
         }
 
@@ -109,19 +114,24 @@ function loadCards(data){
 }
 
 //A quick helper function that makes creating fish cards easier. I ended up making this because I was having trouble making changes to the fish cards since I do this in a few places.
-//This will make creating future adjustments to the fish cards much simpler since it's all in one place.
 function createFishCard(id, fish){
-
-    // TO-DO: Integrate was-caught class to read caught fish cards as green when loaded in and toggled.
     let wasCaught = caughtFish.includes(id);
-    return `<section data-fish-id="${id}" class="fish-card${wasCaught ? "" : ""}"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><button class="catch-button">${wasCaught ? "Set to Uncaught" : "Set to Caught"}</button></section>`;
-    // return `<section data-fish-id="${id}" class="fish-card"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${fish.description}</p></div><div><button class="catch-button">Set to Caught</button><button class="detail-button">More Details</button></div></section>`;
+
+    // Setting a max length for the fish description shown on the fish-card preview. This is to keep global sizing expectations to create repeatable card sizings and stylings.
+    let maxDesc = 50;
+    let desc = fish.description;
+
+    if(desc.length > maxDesc){
+        desc = desc.slice(0,37).trim() + '...';
+    }
+
+    return `<section data-fish-id="${id}" class="fish-card${wasCaught ? " was-caught" : ""}"><div class="card-details"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${desc}</p></div></div><button class="catch-button">${wasCaught ? xSvg : checkSvg}</button></section>`;
 }
 
 // Shows all relevant details that are not initially shown in the pool of cards.
 function showFishDetails(e){
     document.querySelector(".fish-popup").classList.remove("hidden");
-    document.querySelector(".fish-popup button:last-of-type").textContent = "Set to Caught";
+    document.querySelector(".fish-popup button:last-of-type").innerHTML = checkSvg;
     
     //Uses the button to find the card the button was pressed in. Then uses the custom dataset attribute containing the fish ID for the map search.
     let id = Number(e.target.closest(".fish-card").dataset.fishId);
@@ -129,7 +139,7 @@ function showFishDetails(e){
     let targetFish = fishMap.get(id);
 
     if(caughtFish.includes(id)){
-        document.querySelector(".fish-popup button:last-of-type").textContent = "Set to Uncaught";
+        document.querySelector(".fish-popup button:last-of-type").innerHTML = xSvg;
     }
 
     let popupWindow = document.querySelector(".fish-popup");
@@ -153,9 +163,7 @@ function showFishDetails(e){
 
     popupWindow.querySelector("#seasonList").innerHTML = "";
 
-    //Check to see if fish is available all year. If so, only load one item into the seasons list.
-    //This is to help reduce the length of content loaded in the popup.
-    //Certain fish were causing the window to be too filled with information.
+    //If a fish is available all year, show "All Year" instead of all four seasons. Minimizes the content loaded in this window to prevent overflow.
     if(targetFish.season.length == 4){
         let temp = document.createElement("li");
         temp.textContent = "All Year";
@@ -197,28 +205,29 @@ function toggleCatchStatus(e){
     //When event is from the fish card in the fish pool
     else{
         id = Number(e.target.closest(".fish-card").dataset.fishId);
+        e.target.closest(".fish-card").classList.toggle("was-caught");
     }
 
     //String that will hold the value put into the toggleStatus buttons
-    let buttonText = "";
+    let buttonIcon;
 
     //If fish is caught, remove from the caughtFish array and toggle status
     if(caughtFish.includes(id)){
             caughtFish.splice(caughtFish.indexOf(id), 1);
-            buttonText = "Set to Caught";
+            buttonIcon = checkSvg;
     }
 
     //Fish is not caught, which is then set to caught and added to the caughtFish array
     else{
         caughtFish.push(id);
-        buttonText = "Set to Uncaught";
+        buttonIcon = xSvg;
     }
 
     //Assign toggleStatus buttons with the assigned string value
     //Also updates toggleStatus button on fish card if the function is called from the fish popup window
-    e.target.textContent = buttonText;
+    e.target.innerHTML = buttonIcon;
     if(e.target == document.querySelector(".fish-popup #popupStatus")){
-        document.querySelector(`.fish-card[data-fish-id="${id}"] .catch-button`).textContent = buttonText;
+        document.querySelector(`.fish-card[data-fish-id="${id}"] .catch-button`).innerHTML = buttonIcon;
     }
 
     //Sort the array to keep fish ID in numerical order. Likely not needed, but a preference.

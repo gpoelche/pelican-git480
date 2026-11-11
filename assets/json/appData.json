@@ -766,7 +766,7 @@
         {
             "id": 68,
             "name": "Green Algae",
-            "description": "It's really slimy.'",
+            "description": "It's really slimy.",
             "location": ["Lake", "Desert", "Mines (Floor 100)", "Mines (Floor 20)", "Mines (Floor 60)", "Sewers", "Mutant Bug Lair", "Pond", "River", "Secret Woods", "Waterfalls", "Witch's Swamp"],
             "time": ["Anytime"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
@@ -778,7 +778,7 @@
         {
             "id": 69,
             "name": "White Algae",
-            "description": "It's super slimy.'",
+            "description": "It's super slimy.",
             "location": ["Mines (Floor 100)", "Mines (Floor 20)", "Mines (Floor 60)", "Sewers", "Mutant Bug Lair", "Witch's Swamp"],
             "time": ["Anytime"],
             "season": ["Spring", "Summer", "Fall", "Winter"],

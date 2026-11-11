@@ -37,6 +37,9 @@
     --heading-font: "Momo Trust Display", sans-serif;
     --body-font: "Momo Trust Sans", serif;
 
+    --fish-card-heading-size: 1rem;
+    --caption-size: 0.75rem;
+
     --button-corner: 10px;
     --card-corner: 20px;
 }
@@ -348,12 +351,27 @@ input[type^=radio]{
     border: 1px solid var(--body-border);
     padding: 20px 40px;
     align-items: center;
-    justify-content: space-evenly;
+    position: relative;
 }
 
-.was-caught{
-    background: green;
+.fish-card .card-details{
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
+    gap: 5px;
 }
+
+.fish-card h3{
+    font-size: var(--fish-card-heading-size);
+}
+
+.fish-card p{
+    font-size: var(--caption-size);
+}
+
+/* .was-caught{
+
+} */
 
 .fish-card:hover{
     background: var(--body-gradient-hover);
@@ -382,14 +400,19 @@ input[type^=radio]{
     padding: 0px 30px;
     justify-content: center;
     background-color: var(--body-bg-2);
+    border-right: 1px solid var(--body-border);
 }
 
 .fish-popup h5{
     border-bottom: 1px solid var(--body-border);
 }
 
-.fish-popup p{
+/* .fish-popup p{
     max-width: 300px;
+} */
+
+.fish-popup h4 + p{
+    font-size: var(--caption-size);
 }
 
 .fish-popup button{
