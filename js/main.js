@@ -92,16 +92,6 @@ function loadCards(data){
     //Removing any elements that may be in this area of the DOM.
     document.querySelector("#cardList").innerHTML += temp;
 
-    //Sets the proper labels for caught toggle button status on fish cards
-    //Needs to check if the element exists before attempting since this operation will only work if showing all or only caught fish
-    //Will throw a type error when performing the textContent adjustment on an item that doesn't exist in DOM.
-    for(let id of caughtFish){
-            if(document.querySelector('[data-fish-id="' + id + '"]') != null){
-                // document.querySelector('[data-fish-id="' + id + '"]').querySelector(".catch-button").textContent = "Set to Uncaught";
-                document.querySelector('[data-fish-id="' + id + '"]').querySelector(".catch-button").innerHTML = xSvg;
-            }
-        }
-
     //Assign event listeners to all of the toggleCatch and showDetail buttons.
     //These need attached every time this section is rerendered since the DOM is alread loaded.
     for(let button of document.querySelectorAll(".fish-card")){
@@ -279,7 +269,6 @@ function filteredSearch(e){
         //Performs simple filter if not one of the three areas below
         if(locationFilter != "The Mines" && locationFilter != "Ginger Island" && locationFilter != "Sewer"){
             filterArray = filterArray.filter(([id, fish]) => fish.location.includes(locationFilter));
-            alert(`Normal case is running, ${locationFilter} selected:`);
         }
 
         //These filters have sub-areas attached, which this switch case then handles the filtered search for.
@@ -287,24 +276,20 @@ function filteredSearch(e){
             switch(locationFilter){
                 case "The Mines":
                     filterArray = filterArray.filter(([id, fish]) => fish.location.includes("The Mines") || fish.location.includes("The Mines (Floor 20)") || fish.location.includes("The Mines (Floor 60)") || fish.location.includes("The Mines (Floor 100)"));
-                    alert("Returning The Mines");
                     break;
 
                 case "Sewer":
                     filterArray = filterArray.filter(([id, fish]) => fish.location.includes("Sewers") || fish.location.includes("Mutant Bug Lair"));
-                    alert("Returning Sewers");
                     break;
 
 
                 case "Ginger Island":
                     filterArray = filterArray.filter(([id, fish]) => fish.location.includes("Ginger Island (Ocean)") || fish.location.includes("Ginger Island (Volcano Caldera)") || fish.location.includes("Ginger Island (River)") || fish.location.includes("Ginger Island (Pirate Cove)"));
-                    alert("Returning Ginger Island");
                     break;
                 
                 }  
         }
     }
-
 
     //Filter #3 - Season(s)
     //Begins simple filter search on array when the filter value isn't all
