@@ -114,7 +114,7 @@ body{
     color: var(--body-text-color);
 }
 
-body, button, input, select{
+body, input, select{
     line-height: 1.5;
     font-family: var(--body-font);
 }
@@ -175,17 +175,37 @@ header a{
 }
 
 /* UNIVERSAL - SVG BUTTON STYLES */
+button:has(svg){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .theme-toggle, .menu-toggle, .menu-close, .popup-close{
-    background: var(--body-gradient);
-    
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
 }
 
-.theme-toggle:hover, .menu-toggle:hover, .menu-close:hover, .popup-close:hover{
-    background: var(--body-gradient-hover);
+.theme-toggle, .menu-toggle{
+    background-color: var(--body-bg-1);
 }
 
-.theme-toggle svg, .menu-toggle svg, .menu-close svg, .popup-close svg{
+.theme-toggle:hover, .menu-toggle:hover, .menu-close:hover{
+    background: var(--body-bg-2);
+}
+
+.theme-toggle svg, .menu-toggle svg, .menu-close svg, .popup-close svg, .catch-button svg{
     fill: var(--body-text-color);
+}
+
+.popup-close{
+    background-color: var(--body-bg-2);
+}
+
+.popup-close:hover{
+    background-color: var(--body-bg-1);
 }
 
 /* UNIVERSAL - MAIN STYLES */
@@ -352,6 +372,7 @@ input[type^=radio]{
     color: var(--body-text-color);
     padding: 20px 40px;
     border-radius: var(--button-corner);
+    border: 1px solid var(--button-border);
 }
 
 #openFilters:hover, #resetButton:hover{
@@ -408,6 +429,14 @@ input[type^=radio]{
 .catch-button{
     background-color: var(--body-bg-3);
     color: var(--body-text-color);
+    border: 1px solid var(--button-border);
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+}
+
+.catch-button:hover{
+    background-color: var(--body-bg-1);
 }
 
 /* TRACKER - FISH POPUP STYLES */
@@ -437,9 +466,11 @@ input[type^=radio]{
     font-size: var(--caption-size);
 }
 
-.fish-popup button{
+#popupStatus{
     background: var(--body-bg-3);
     color: var(--body-font);
+    border: 1px solid var(--button-border);
+    border-radius: var(--button-corner);
 }
 
 .fish-popup button:first-of-type{
@@ -579,6 +610,14 @@ input[type^=radio]{
     top: 15px;
 }
 
+nav .menu-close{
+    background-color: var(--body-bg-2);
+}
+
+nav .menu-close:hover{
+    background-color: var(--body-bg-1);
+}
+
 .tracker-body nav ul, .index-body nav ul{
     position: fixed;
     top: 100px;
@@ -618,6 +657,14 @@ input[type^=radio]{
     align-content: center;
     border-right: 1px solid var(--body-border);
     padding-left: 20px;
+}
+
+#filtersWrapper .menu-close{
+    background-color: var(--body-bg-2);
+}
+
+#filtersWrapper .menu-close:hover{
+    background-color: var(--body-bg-1);
 }
 
 #filtersWrapper select{
