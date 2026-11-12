@@ -20,6 +20,8 @@
     --dark-text-1: oklch(95.526% 0.03021 196.857);
     --dark-text-2: oklch(0.76 0.1 208);
 
+    --danger: oklch(0.7 0.19 30);
+    --success: oklch(0.7 0.19 160);
 
     --light-bg-1: hsl(0, 0%, 90%);
     --light-bg-2: hsl(0, 0%, 95%);
@@ -29,10 +31,12 @@
     --body-bg-2: var(--dark-bg-2);
     --body-bg-3: var(--dark-bg-3);
     --body-border: var(--dark-border);
+    --button-border: var(--dark-text-1);
     --body-gradient: var(--dark-bg-gradient);
     --body-gradient-hover: var(--dark-bg-gradient-hover);
 
     --body-text-color: var(--dark-text-1);
+    --body-text-color-2: var(--dark-text-2);
 
     --heading-font: "Momo Trust Display", sans-serif;
     --body-font: "Momo Trust Sans", serif;
@@ -200,6 +204,7 @@ footer{
     text-align: center;
     padding: 60px 20px;
     border-top: 1px solid var(--body-border);
+    background: var(--body-bg-1);
 }
 
 /* INDEX - GENERAL */
@@ -331,7 +336,6 @@ select, input[type=text]{
     color: var(--body-font);
     border: 1px solid var(--body-border);
     border-radius: 5px;
-    width: 300px;
 }
 
 input[type=text]{
@@ -461,21 +465,68 @@ input[type^=radio]{
 #login, #signup{
     display: flex;
     flex-direction: column;
-    place-self: center;
     background: var(--body-bg-2);
-    padding: 100px;
-    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 25px 0px;
+    min-height: 600px;
 }
 
 #login form, #signup form{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: min(80dvw, 300px);
 }
 
 #login form div, #signup form div{
     display: flex;
     flex-direction: column;
+}
+
+#login form ul, #signup form ul{
+    font-size: var(--caption-size);
+    list-style: disc;
+    margin-left: 20px;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+#login input[type^=submit], #signup input[type^=submit]{
+    background: var(--body-gradient);
+    color: var(--body-text-color);
+    padding: 10px;
+    border-radius: var(--button-corner);
+    border: 1px solid var(--button-border);
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+#login input[type^=submit]:hover, #signup input[type^=submit]:hover{
+    background: var(--body-gradient-hover);
+}
+
+#login p, #signup p:last-of-type{
+    font-size: var(--caption-size);
+    font-style: italic;
+    margin-top: 5px;
+}
+
+#login a, #signup a{
+    color: var(--body-text-color-2);
+}
+
+.required{
+    color: var(--danger);
+}
+
+.error{
+    color: var(--danger);
+}
+
+.success{
+    color: var(--success);
 }
 
 /* MOBILE STYLES BEGINS */
