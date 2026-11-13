@@ -26,3 +26,20 @@ sense to start with designing for smaller screens.  While this was challenging a
 from my peers, my professor, and friends who played the game, understanding what changes would benefit Pelican’s uses the most became more clear. 
 <br><br>
 *[Note: Pelican is still in development! This area will be updated as development progresses.]*
+
+## Results
+*[Note: Pelican is still in development! This area will be updated as development progresses.]*
+
+## Gallery
+<img width="2048" height="817" alt="unnamed" src="https://github.com/user-attachments/assets/2b1ee77e-89d4-4d7a-9bf4-830bf7288aa4" />
+This is the most recent update to the hero section on the home page. The visual identity and aesthetic has been further refined to remain consistent with the initial project moodboard.
+<br><br>
+<img width="2048" height="990" alt="unnamed (1)" src="https://github.com/user-attachments/assets/89d662ec-4daa-43f6-9c38-8d1efd9c7f3c" />
+This is the most recent version of the fish tracker main screen. Users can see the fish in cards based on the filters that are/are not applied on the left. 
+<br><br>
+<img width="2048" height="990" alt="unnamed (2)" src="https://github.com/user-attachments/assets/15512e5d-4b63-41fd-b355-75951e2799b2" />
+This is the popup window that opens when the user clicks a fish’s card to see more details. Specific catch conditions are shown to the user in this window.
+<br><br>
+<img width="2048" height="990" alt="unnamed (4)" src="https://github.com/user-attachments/assets/80df6020-fade-4911-b6ea-28e162bd2f79" />
+This is the current version of the signup page. This performs front-end validation on the data entered in each form element to ensure users are meeting the requirements to create an account. Full back-end integration (allowing users to fully sign up and login to retrieve their data) is set for a future release, and this page is being made to set the foundation for this update.
+
