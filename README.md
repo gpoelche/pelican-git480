@@ -1,4 +1,7 @@
 # Pelican: A Client-Side Fishing Companion App for Stardew Valley
+
+<img width="10667" height="3556" alt="pelican" src="https://github.com/user-attachments/assets/d624c77a-1dd8-401f-940b-90ff164fa8c0" />
+
 ## Objective
 Pelican is my capstone project, which was developed in my final semester in fall 2026. The project embodies all that I learned in my time as a full-stack development student. 
 Personally, I took this as an opportunity to build something that both solved a problem for a community that I am a part of (which provided a good knowledge base for solving the problem)
