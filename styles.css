@@ -15,17 +15,17 @@
     --dark-bg-gradient: linear-gradient(0deg, var(--dark-bg-1), var(--dark-bg-2));
     --dark-bg-gradient-hover: linear-gradient(0deg, var(--dark-bg-2), var(--dark-bg-3));
     --dark-border: oklch(0.4 0.2 208);
-
-    /* --dark-text-1: oklch(0.96 0.1 208); */
     --dark-text-1: oklch(95.526% 0.03021 196.857);
     --dark-text-2: oklch(0.76 0.1 208);
 
-    --danger: oklch(0.7 0.19 30);
-    --success: oklch(0.7 0.19 160);
-
-    --light-bg-1: hsl(0, 0%, 90%);
-    --light-bg-2: hsl(0, 0%, 95%);
-    --light-bg-3: hsl(0, 0%, 100%);
+    --light-bg-3: oklch(0.92 0.005 201);
+    --light-bg-2: oklch(0.96 0.005 201);
+    --light-bg-1: oklch(1 0.005 201);
+    --light-bg-gradient: linear-gradient(0deg, var(--light-bg-3), var(--light-bg-2));
+    --light-bg-gradient-hover: linear-gradient(0deg, var(--light-bg-2), var(--light-bg-1));
+    --light-border: oklch(0.6 0.01 201);
+    --light-text-1: oklch(0.15 0.01 201);
+    --light-text-2: oklch(0.4 0.01 201);
 
     --body-bg-1: var(--dark-bg-1);
     --body-bg-2: var(--dark-bg-2);
@@ -34,7 +34,7 @@
     --button-border: var(--dark-text-1);
     --body-gradient: var(--dark-bg-gradient);
     --body-gradient-hover: var(--dark-bg-gradient-hover);
-
+    --heading-text-color: var(--dark-text-1);
     --body-text-color: var(--dark-text-1);
     --body-text-color-2: var(--dark-text-2);
 
@@ -47,6 +47,15 @@
     --button-corner: 10px;
     --card-corner: 20px;
     --menu-blur: rgba(0, 0, 0, 0.6);
+
+    --danger: oklch(0.7 0.19 30);
+    --success: oklch(0.7 0.19 160);
+
+    --was-caught-1: oklch(0.6503 0.1923 144.6);
+    --was-caught-2: oklch(0.7171 0.1923 144.6);
+    --was-caught-gradient: linear-gradient(0deg, var(--was-caught-1), var(--was-caught-2));
+
+    --body-max-width: 80ch;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -104,9 +113,18 @@ table {
     display: none !important;
 }
 
-/* TO-DO: Create light mode theme by changing variables used in certain root values */
+/* Light mode theme colors adjusted */
 .light{
-    display: none;
+    --body-bg-1: var(--light-bg-3);
+    --body-bg-2: var(--light-bg-2);
+    --body-bg-3: var(--light-bg-1);
+    --body-border: var(--light-border);
+    --button-border: var(--light-text-1);
+    --body-gradient: var(--light-bg-gradient);
+    --body-gradient-hover: var(--light-bg-gradient-hover);
+    --heading-text-color: var(--light-text-2);
+    --body-text-color: var(--light-text-1);
+    --body-text-color-2: var(--light-text-2);
 }
 
 body{
@@ -122,7 +140,7 @@ body, input, select{
 
 h1, h2, h3, h4, h5{
     font-family: var(--heading-font);
-    color: var(--dark-text-1);
+    color: var(--heading-text-color);
 }
 
 h1{
@@ -171,7 +189,7 @@ header a{
 #headerLogo svg{
     height: 50px;
     width: 50px;
-    fill: var(--body-text-color);
+    fill: var(--heading-text-color);
 }
 
 /* UNIVERSAL - SVG BUTTON STYLES */
@@ -208,6 +226,14 @@ button:has(svg){
     background-color: var(--body-bg-1);
 }
 
+/* UNIVERSAL - FOOTER STYLES */
+footer{
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 1px solid var(--body-border);
+    background: var(--body-bg-1);
+}
+
 /* UNIVERSAL - MAIN STYLES */
 
 /* UNIVERSAL - HERO */
@@ -219,25 +245,24 @@ button:has(svg){
     padding: 200px 0px;
 }
 
-/* UNIVERSAL - FOOTER STYLES */
-footer{
-    text-align: center;
-    padding: 60px 20px;
-    border-top: 1px solid var(--body-border);
-    background: var(--body-bg-1);
-}
-
-/* INDEX - GENERAL */
-.index-body section:not(.index-body section:first-of-type){
-    padding: 40px 0px;
-}
-
-.index-body h2{
-    margin-bottom: 15px;
+.light #hero{
+    background: linear-gradient(180deg,rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.85) 100%), url(assets/images/hero_light.png);
+    background-blend-mode: soft-light;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
 }
 
 #hero div{
     margin-bottom: 40px;
+    max-width: 70ch;
+}
+
+#hero > div{
+    background-color: var(--menu-blur);
+    padding: 40px 0px;
+    margin: 0px 20px;
+    justify-self: center;
+    border-radius: var(--button-corner);
 }
 
 #hero a{
@@ -249,10 +274,24 @@ footer{
     border-radius: var(--button-corner);
     border: 1px solid var(--body-text-color);
     font-family: var(--heading-font);
+    display: inline-block;
 }
 
 #hero a:hover{
     background: var(--body-gradient-hover);
+}
+
+.light #hero div, .light #hero h2{
+    color: var(--dark-text-1);
+}
+
+/* INDEX - GENERAL */
+.index-body section:not(.index-body section:first-of-type){
+    padding: 40px 0px;
+}
+
+.index-body h2{
+    margin-bottom: 15px;
 }
 
 /* INDEX - ABOUT */
@@ -274,7 +313,7 @@ footer{
     display: flex;
     flex-direction: column;
     gap: 25px;
-    margin-top: 20px;
+    margin: 20px 20px 0;
 }
 
 .future-card{
@@ -284,7 +323,6 @@ footer{
     border: 1px solid var(--body-border);
     display: flex;
     flex-direction: column;
-    margin: 0 10px;
 }
 
 .future-card:hover{
@@ -298,6 +336,16 @@ footer{
     margin: 0 auto 10px;
     fill: var(--body-text-color);
 }
+
+.future-card div{
+    margin-bottom: 20px;
+}
+
+.future-card h3{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 
 /* INDEX - IMPROVE */
 #improve{
@@ -412,13 +460,19 @@ input[type^=radio]{
     font-size: var(--caption-size);
 }
 
-/* .was-caught{
-
-} */
-
 .fish-card:hover{
     background: var(--body-gradient-hover);
     cursor: pointer;
+}
+
+.was-caught, .was-caught:hover{
+    background: var(--was-caught-gradient);
+    background-blend-mode: hard-light;
+    border-color: var(--body-text-color);
+}
+
+.light .was-caught *{
+    color: var(--dark-text-1);
 }
 
 .fish-card img{
@@ -458,10 +512,6 @@ input[type^=radio]{
     border-bottom: 1px solid var(--body-border);
 }
 
-/* .fish-popup p{
-    max-width: 300px;
-} */
-
 .fish-popup h4 + p{
     font-size: var(--caption-size);
 }
@@ -471,6 +521,10 @@ input[type^=radio]{
     color: var(--body-font);
     border: 1px solid var(--button-border);
     border-radius: var(--button-corner);
+}
+
+#popupStatus svg{
+    fill: var(--body-text-color);
 }
 
 .fish-popup button:first-of-type{
@@ -730,6 +784,14 @@ nav .menu-close:hover{
         background: none;
     }
 
+
+}
+
+@media (min-width: 1024px){
+    #futureCards{
+        flex-direction: row;
+        justify-content: space-around;
+    }
 
 }
 

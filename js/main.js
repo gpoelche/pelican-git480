@@ -62,9 +62,17 @@ function loadCards(data){
         //This executes when a 1D array is passed to the function. This is triggered when filter controls are reset.
         //This lets the user load all fish again without having to run goFish and make an async call to the appData file.
         else{
-            for(let id of data){
-                temp += createFishCard(id, fishMap.get(id));
+            if(data.length > 0){
+                for(let id of data){
+                    temp += createFishCard(id, fishMap.get(id));
+                }
             }
+
+            //Return this message if no fish match the results from the search conditions.
+            else{
+                temp += `<span>No fish match the selected criteria. Please select new search conditions!</span>`;
+            }
+
         }
     }
 
@@ -76,9 +84,22 @@ function loadCards(data){
             temp += createFishCard(card.id, card);
 
             //Mapping the indexes of the JSON to a Map, which will make searching for each fish much easier when needing to display fish cards.
-            //Legendary fish have unique identifying fields, so these must be added in a seperate declaration from normal fish.
-            if(card.legendary){
-                fishMap.set(card.id, {name: card.name, description: card.description, location: card.location, time: card.time, season: card.season, weather: card.weather, difficulty: card.difficulty, legendary: card.legendary, legendNote: card.legendNote, requiredLevel: card.requiredLevel});
+
+            // Fish with tags (legendary, crabpot, other, bundle, etc.) are mapped to include their unique values.
+            // Legendary fish are checked as well since they contain unique fields from other fish with tags.
+            if(card.tags){
+                if(card.tags.includes("legendary")){
+                    fishMap.set(card.id, {name: card.name, description: card.description, location: card.location, time: card.time, season: card.season, weather: card.weather, difficulty: card.difficulty, tags: card.tags, legendNote: card.legendNote, requiredLevel: card.requiredLevel});
+                }
+
+                else if(card.tags.includes("bundle")){
+                    fishMap.set(card.id, {name: card.name, description: card.description, location: card.location, time: card.time, season: card.season, weather: card.weather, difficulty: card.difficulty, tags: card.tags, bundles: card.bundles}); 
+                }
+
+                else{
+                    fishMap.set(card.id, {name: card.name, description: card.description, location: card.location, time: card.time, season: card.season, weather: card.weather, difficulty: card.difficulty, tags: card.tags});
+                }
+
             }
 
             else{
@@ -123,6 +144,19 @@ function showFishDetails(e){
     document.querySelector(".fish-popup").classList.remove("hidden");
     document.querySelector("#menuBlur").classList.remove("hidden");
     document.querySelector(".fish-popup button:last-of-type").innerHTML = checkSvg;
+
+    if(document.querySelector("#locationDiv").classList.contains("hidden")){
+        document.querySelector("#locationDiv").classList.remove("hidden");
+    }
+
+    if(!document.querySelector("#legendaryNotes").classList.contains("hidden")){
+        document.querySelector("#legendaryNotes").classList.add("hidden");
+    }
+
+    if(!document.querySelector("#bundlesDiv").classList.contains("hidden")){
+        document.querySelector("#bundlesDiv").classList.add("hidden");
+        document.querySelector("#bundleList").innerHTML = "";
+    }
     
     //Uses the button to find the card the button was pressed in. Then uses the custom dataset attribute containing the fish ID for the map search.
     let id = Number(e.target.closest(".fish-card").dataset.fishId);
@@ -175,6 +209,29 @@ function showFishDetails(e){
         temp.textContent = weather;
         popupWindow.querySelector("#weatherList").appendChild(temp);
     }
+
+    //Checks to see if the fish has tags, loads special fields into the card if it does have tags.
+    if(targetFish.tags){
+        if(targetFish.tags.includes("legendary")){
+            document.querySelector("#legendaryNotes").classList.remove("hidden");
+            document.querySelector("#legendaryNotes p").textContent = targetFish.legendNote;
+            document.querySelector("#locationDiv").classList.add("hidden");
+
+            if(targetFish.requiredLevel > 0){
+                document.querySelector("#legendaryNotes p").innerHTML += ` <br><span class="required">Fishing Level ${targetFish.requiredLevel} required!</span>`;
+            }
+        }
+
+        if(targetFish.tags.includes("bundle")){
+            document.querySelector("#bundlesDiv").classList.remove("hidden");
+
+            for(let bundle of targetFish.bundles){
+                let temp = document.createElement("li");
+                temp.textContent = bundle + " Bundle";
+                popupWindow.querySelector("#bundleList").appendChild(temp);
+            }
+        }
+    }
 }
 
 //Function that toggles a fish's caught status. Status is toggled and the count for the user's caught fish total is updated.
@@ -196,9 +253,9 @@ function toggleCatchStatus(e){
     //When event is from the fish card in the fish pool
     else{
         id = Number(e.target.closest(".fish-card").dataset.fishId);
-        e.target.closest(".fish-card").classList.toggle("was-caught");
     }
 
+    document.querySelector(`.fish-card[data-fish-id="${id}"]`).classList.toggle("was-caught");
     //String that will hold the value put into the toggleStatus buttons
     let buttonIcon;
 

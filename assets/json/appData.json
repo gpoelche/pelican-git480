@@ -8,7 +8,9 @@
             "time": ["12pm - 4pm"],
             "season": ["Summer"],
             "weather": ["Sunny"],
-            "difficulty": "80 Floater"
+            "difficulty": "80 Floater",
+            "tags": ["bundle"],
+            "bundles": ["Specialty Fish"]
         },
 
         {
@@ -30,7 +32,9 @@
             "time": ["6am - 7pm"],
             "season": ["Summer", "Winter"],
             "weather": ["Any"],
-            "difficulty": "70 Smooth"
+            "difficulty": "70 Smooth",
+            "tags": ["bundle"],
+            "bundles": ["Ocean Fish", "Quality Fish"]
         },
 
         {
@@ -41,7 +45,9 @@
             "time": ["6am - 7pm"],
             "season": ["Spring", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "30 Dart"
+            "difficulty": "30 Dart",
+            "tags": ["bundle"],
+            "bundles": ["Ocean Fish"]
         },
 
         {
@@ -52,7 +58,9 @@
             "time": ["6pm - 2am"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "35 Smooth"
+            "difficulty": "35 Smooth",
+            "tags": ["bundle"],
+            "bundles": ["Night Fishing"]
         },
 
         {
@@ -63,7 +71,9 @@
             "time": ["6am - 7pm"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "50 Mixed"
+            "difficulty": "50 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["Lake Fish", "Quality Fish"]
         },
 
         {
@@ -107,7 +117,9 @@
             "time": ["12pm - 2am"],
             "season": ["Fall", "Winter"],
             "weather": ["Rainy"],
-            "difficulty": "45 Smooth"
+            "difficulty": "45 Smooth",
+            "tags": ["bundle"],
+            "bundles": ["Night Fishing", "Quality Fish"]
         },
 
         {
@@ -129,7 +141,9 @@
             "time": ["Anytime"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "15 Mixed"
+            "difficulty": "15 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["Lake Fish"]
         },
 
         {
@@ -140,7 +154,9 @@
             "time": ["6am - 12pm"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Rainy"],
-            "difficulty": "75 Mixed"
+            "difficulty": "75 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["River Fish"]
         },
 
         {
@@ -162,7 +178,9 @@
             "time": ["6am - 7pm"],
             "season": ["Spring", "Summer"],
             "weather": ["Sunny", "Windy"],
-            "difficulty": "30 Mixed"
+            "difficulty": "30 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["River Fish"]
         },
 
         {
@@ -195,7 +213,9 @@
             "time": ["4pm - 2am"],
             "season": ["Spring", "Fall"],
             "weather": ["Rainy"],
-            "difficulty": "70 Smooth"
+            "difficulty": "70 Smooth",
+            "tags": ["bundle"],
+            "bundles": ["Night Fishing"]
         },
 
         {
@@ -206,7 +226,9 @@
             "time": ["6am - 1pm"],
             "season": ["Summer"],
             "weather": ["Any"],
-            "difficulty": "95 Sinker"
+            "difficulty": "95 Sinker",
+            "tags": ["bundle"],
+            "bundles": ["Master Fisher's"]
         },
 
         {
@@ -217,7 +239,9 @@
             "time": ["6am - 7pm"],
             "season": ["Summer", "Fall", "Winter"],
             "weather": ["Rainy"],
-            "difficulty": "40 Mixed"
+            "difficulty": "40 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["Ocean Fish"]
         },
 
         {
@@ -261,7 +285,9 @@
             "time": ["Anytime"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "50 Mixed"
+            "difficulty": "50 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["Specialty Fish"]
         },
 
         {
@@ -294,7 +320,9 @@
             "time": ["Anytime"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "90 Mixed"
+            "difficulty": "90 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["Master Fisher's"]
         },
 
         {
@@ -305,7 +333,9 @@
             "time": ["6am - 8pm"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "65 Mixed"
+            "difficulty": "65 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["Specialty Fish"]
         },
 
         {
@@ -316,7 +346,9 @@
             "time": ["6am - 8pm"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "90 Dart"
+            "difficulty": "90 Dart",
+            "tags": ["bundle"],
+            "bundles": ["Master Fisher's"]
         },
 
         {
@@ -349,7 +381,9 @@
             "time": ["6am - 7pm"],
             "season": ["Summer", "Winter"],
             "weather": ["Any"],
-            "difficulty": "78 Mixed"
+            "difficulty": "78 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["Lake Fish"]
         },
 
         {
@@ -360,7 +394,9 @@
             "time": ["6am - 7pm"],
             "season": ["Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "60 Dart"
+            "difficulty": "60 Dart",
+            "tags": ["bundle"],
+            "bundles": ["River Fish"]
         },
 
         {
@@ -371,7 +407,9 @@
             "time": ["Anytime"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "46 Smooth"
+            "difficulty": "46 Smooth",
+            "tags": ["bundle"],
+            "bundles": ["Lake Fish"]
         },
 
         {
@@ -382,7 +420,9 @@
             "time": ["6am - 2pm"],
             "season": ["Summer", "Fall"],
             "weather": ["Any"],
-            "difficulty": "50 Mixed"
+            "difficulty": "50 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["Ocean Fish"]
         },
 
         {
@@ -393,7 +433,9 @@
             "time": ["Anytime"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "35 Dart"
+            "difficulty": "35 Dart",
+            "tags": ["bundle"],
+            "bundles": ["Field Research"]
         },
 
         {
@@ -426,7 +468,9 @@
             "time": ["9am - 2am"],
             "season": ["Spring", "Summer", "Fall"],
             "weather": ["Rainy"],
-            "difficulty": "45 Smooth"
+            "difficulty": "45 Smooth",
+            "tags": ["bundle"],
+            "bundles": ["River Fish", "Quality Fish"]
         },
 
         {
@@ -459,7 +503,9 @@
             "time": ["Anytime"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "50 Mixed"
+            "difficulty": "50 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["Specialty Fish"]
         },
 
         {
@@ -470,7 +516,9 @@
             "time": ["Anytime"],
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "80 Mixed"
+            "difficulty": "80 Mixed",
+            "tags": ["bundle"],
+            "bundles": ["The Missing"]
         },
 
         {
@@ -558,7 +606,9 @@
             "time": ["5pm - 2am"],
             "season": ["Winter"],
             "weather": ["Any"],
-            "difficulty": "75 Floater"
+            "difficulty": "75 Floater",
+            "tags": ["bundle"],
+            "bundles": ["Master Fisher's"]
         },
 
         {
@@ -570,7 +620,7 @@
             "season": ["Summer"],
             "weather": ["Any"],
             "difficulty": "95 Mixed",
-            "legendary" : true,
+            "tags": ["legendary"],
             "legendNote": "This fish can only be caught at the East Pier on the Beach.",
             "requiredLevel": 5
         },
@@ -584,7 +634,7 @@
             "season": ["Fall"],
             "weather": ["Any"],
             "difficulty": "85 Smooth",
-            "legendary" : true,
+            "tags": ["legendary"],
             "legendNote": "This fish can only be caught at the waterfall north of JojaMart.",
             "requiredLevel": 3
         },
@@ -598,7 +648,7 @@
             "season": ["Spring"],
             "weather": ["Rainy"],
             "difficulty": "110 Mixed",
-            "legendary" : true,
+            "tags": ["legendary"],
             "legendNote": "This fish can only be caught at the log in the Mountain Lake.",
             "requiredLevel": 10
         },
@@ -612,7 +662,7 @@
             "season": ["Winter"],
             "weather": ["Any"],
             "difficulty": "100 Mixed",
-            "legendary" : true,
+            "tags": ["legendary"],
             "legendNote": "This fish can only be caught at Arrowhead Island in the forest.",
             "requiredLevel": 6
         },
@@ -626,7 +676,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "80 Dart",
-            "legendary" : true,
+            "tags": ["legendary"],
             "legendNote": "This fish can only be caught in the Sewers.",
             "requiredLevel": 0
         },
@@ -640,7 +690,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "crabpot" : true
+            "tags" : ["crabpot"]
         },
 
         {
@@ -652,7 +702,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "crabpot" : true
+            "tags" : ["crabpot"]
         },
 
         {
@@ -664,7 +714,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "crabpot" : true
+            "tags" : ["crabpot"]
         },
 
         {
@@ -676,7 +726,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "crabpot" : true
+            "tags" : ["crabpot"]
         },
 
         {
@@ -688,7 +738,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "crabpot" : true
+            "tags" : ["crabpot"]
         },
 
         {
@@ -700,7 +750,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "crabpot" : true
+            "tags" : ["crabpot"]
         },
 
         {
@@ -712,7 +762,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "crabpot" : true
+            "tags" : ["crabpot"]
         },
 
         {
@@ -724,7 +774,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "crabpot" : true
+            "tags" : ["crabpot"]
         },
 
         {
@@ -736,7 +786,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "crabpot" : true
+            "tags" : ["crabpot"]
         },
 
         {
@@ -748,7 +798,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "crabpot" : true
+            "tags" : ["crabpot"]
         },
 
         {
@@ -760,7 +810,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "other" : true
+            "tags" : ["other"]
         },
 
         {
@@ -772,7 +822,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "other" : true
+            "tags" : ["other"]
         }, 
 
         {
@@ -784,7 +834,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "other" : true
+            "tags" : ["other"]
         }, 
 
         {
@@ -796,7 +846,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "other" : true
+            "tags" : ["other"]
         },
 
         {
@@ -808,7 +858,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "other" : true
+            "tags" : ["other"]
         },
 
         {
@@ -820,7 +870,7 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "other" : true
+            "tags" : ["other"]
         }
     ]
 }

@@ -1,14 +1,19 @@
 //A very simple script that handles mobile navigation display settings.
-
-document.querySelector(".menu-toggle").addEventListener("click", function(){
-    document.querySelector("nav").classList.add("show-menu");
-    document.querySelector("#menuBlur").classList.remove("hidden");
+document.querySelector(".theme-toggle").addEventListener("click", function(){
+    document.querySelector("body").classList.toggle("light");
 });
 
-document.querySelector("header .menu-close").addEventListener("click", function(){
-    document.querySelector("nav").classList.remove("show-menu");
-    document.querySelector("#menuBlur").classList.add("hidden");
-});
+if(!document.querySelector(".login-body") && !document.querySelector(".signup-body")){
+    document.querySelector(".menu-toggle").addEventListener("click", function(){
+        document.querySelector("nav").classList.add("show-menu");
+        document.querySelector("#menuBlur").classList.remove("hidden");
+    });
+
+    document.querySelector("header .menu-close").addEventListener("click", function(){
+        document.querySelector("nav").classList.remove("show-menu");
+        document.querySelector("#menuBlur").classList.add("hidden");
+    });
+}
 
 if(document.querySelector(".tracker-body")){{
     document.querySelector("#openFilters").addEventListener("click", function(e){
