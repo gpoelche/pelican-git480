@@ -144,6 +144,7 @@ function showFishDetails(e){
     document.querySelector(".fish-popup").classList.remove("hidden");
     document.querySelector("#menuBlur").classList.remove("hidden");
     document.querySelector(".fish-popup button:last-of-type").innerHTML = checkSvg;
+    document.querySelector("#tagDiv").innerHTML = "";
 
     if(document.querySelector("#locationDiv").classList.contains("hidden")){
         document.querySelector("#locationDiv").classList.remove("hidden");
@@ -212,6 +213,14 @@ function showFishDetails(e){
 
     //Checks to see if the fish has tags, loads special fields into the card if it does have tags.
     if(targetFish.tags){
+        for(let tag of targetFish.tags){
+            let temp = document.createElement("span");
+            temp.classList.add(`${tag}-tag`);
+            temp.classList.add("tag");
+            temp.textContent = tag;
+            document.querySelector("#tagDiv").appendChild(temp);
+        }
+
         if(targetFish.tags.includes("legendary")){
             document.querySelector("#legendaryNotes").classList.remove("hidden");
             document.querySelector("#legendaryNotes p").textContent = targetFish.legendNote;

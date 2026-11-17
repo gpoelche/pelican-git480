@@ -15,7 +15,8 @@
     --dark-bg-gradient: linear-gradient(0deg, var(--dark-bg-1), var(--dark-bg-2));
     --dark-bg-gradient-hover: linear-gradient(0deg, var(--dark-bg-2), var(--dark-bg-3));
     --dark-border: oklch(0.4 0.2 208);
-    --dark-text-1: oklch(95.526% 0.03021 196.857);
+    /* --dark-text-1: oklch(95.526% 0.03021 196.857); */
+    --dark-text-1: oklch(1 0 259);
     --dark-text-2: oklch(0.76 0.1 208);
 
     --light-bg-3: oklch(0.92 0.005 201);
@@ -50,6 +51,11 @@
 
     --danger: oklch(0.7 0.19 30);
     --success: oklch(0.7 0.19 160);
+
+    --legendary-tag: oklch(0.4 0.17 302);
+    --crabpot-tag: oklch(0.7 0.19 30);
+    --bundle-tag: oklch(0.5 0.17 260);
+    --other-tag: oklch(0.5 0.17 100);
 
     --was-caught-1: oklch(0.6503 0.1923 144.6);
     --was-caught-2: oklch(0.7171 0.1923 144.6);
@@ -435,6 +441,49 @@ input[type^=radio]{
     margin: 0 20px;
 }
 
+.tag{
+    font-size: var(--caption-size);
+    text-transform: uppercase;
+    padding: 4px;
+    border-radius: var(--button-corner);
+    font-weight: bold;
+    place-self: center;
+    color: var(--dark-text-1);
+}
+
+.bundle-tag{
+    background-color: var(--bundle-tag);
+}
+
+.legendary-tag{
+    background-color: var(--legendary-tag);
+    /* background: linear-gradient(45deg, var(--success), var(--bundle-tag), var(--legendary-tag));
+    animation: legendary-animation 5s ease infinite;
+    background-size: 200% 200%; */
+}
+
+/* @keyframes legendary-animation{
+    0%{
+        background-position: 0% 0%;
+    }
+
+    50%{
+        background-position: 100% 100%;
+    }
+    
+    100%{
+        background-position: 0% 0%;
+    }
+} */
+
+.crabpot-tag{
+    background-color: var(--crabpot-tag);
+}
+
+.other-tag{
+    background-color: var(--other-tag);
+}
+
 .fish-card{
     display: flex;
     border-radius: 15px;
@@ -512,7 +561,7 @@ input[type^=radio]{
     border-bottom: 1px solid var(--body-border);
 }
 
-.fish-popup h4 + p{
+.fish-popup h4 ~ p{
     font-size: var(--caption-size);
 }
 
