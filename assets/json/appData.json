@@ -9,8 +9,9 @@
             "season": ["Summer"],
             "weather": ["Sunny"],
             "difficulty": "80 Floater",
-            "tags": ["bundle"],
-            "bundles": ["Specialty Fish"]
+            "tags": ["bundle", "quest"],
+            "bundles": ["Specialty Fish"],
+            "quests": ["Aquatic Research"]
         },
 
         {
@@ -72,8 +73,9 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "50 Mixed",
-            "tags": ["bundle"],
-            "bundles": ["Lake Fish", "Quality Fish"]
+            "tags": ["bundle", "quest"],
+            "bundles": ["Lake Fish", "Quality Fish"],
+            "quests": ["Fish Casserole"]
         },
 
         {
@@ -252,7 +254,9 @@
             "time": ["6pm - 2am"],
             "season": ["Winter"],
             "weather": ["Any"],
-            "difficulty": "75 Sinker"
+            "difficulty": "75 Sinker",
+            "tags": ["quest"],
+            "quests": ["Catch a Squid"]
         },
 
         {
@@ -457,7 +461,9 @@
             "time": ["6am - 11am", "6pm - 2am"],
             "season": ["Fall", "Winter"],
             "weather": ["Any"],
-            "difficulty": "60 Mixed"
+            "difficulty": "60 Mixed",
+            "tags": ["quest"],
+            "quests": ["Fish Stew"]
         },
 
         {
@@ -481,7 +487,9 @@
             "time": ["Anytime"],
             "season": ["Winter"],
             "weather": ["Any"],
-            "difficulty": "85 Mixed"
+            "difficulty": "85 Mixed",
+            "tags": ["quest"],
+            "quests": ["Catch a Lingcod"]
         },
 
         {
@@ -702,7 +710,8 @@
             "season": ["Spring", "Summer", "Fall", "Winter"],
             "weather": ["Any"],
             "difficulty": "0 None",
-            "tags" : ["crabpot"]
+            "tags" : ["crabpot", "quest"],
+            "quests": ["Wanted Lobster"]
         },
 
         {

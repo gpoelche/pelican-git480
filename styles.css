@@ -52,7 +52,13 @@
     --danger: oklch(0.7 0.19 30);
     --success: oklch(0.7 0.19 160);
 
+    --diff-easy: oklch(0.7 0.19 160);
+    --diff-medium: oklch(0.7 0.2 59);
+    --diff-hard: oklch(0.7 0.19 30);
+    --diff-legend: oklch(0.4 0.17 302);
+
     --legendary-tag: oklch(0.4 0.17 302);
+    --quest-tag: oklch(0.7 0.2 59);
     --crabpot-tag: oklch(0.7 0.19 30);
     --bundle-tag: oklch(0.5 0.17 260);
     --other-tag: oklch(0.5 0.17 100);
@@ -441,47 +447,11 @@ input[type^=radio]{
     margin: 0 20px;
 }
 
-.tag{
-    font-size: var(--caption-size);
-    text-transform: uppercase;
-    padding: 4px;
-    border-radius: var(--button-corner);
-    font-weight: bold;
-    place-self: center;
-    color: var(--dark-text-1);
-}
-
-.bundle-tag{
-    background-color: var(--bundle-tag);
-}
-
-.legendary-tag{
-    background-color: var(--legendary-tag);
-    /* background: linear-gradient(45deg, var(--success), var(--bundle-tag), var(--legendary-tag));
-    animation: legendary-animation 5s ease infinite;
-    background-size: 200% 200%; */
-}
-
-/* @keyframes legendary-animation{
-    0%{
-        background-position: 0% 0%;
-    }
-
-    50%{
-        background-position: 100% 100%;
-    }
-    
-    100%{
-        background-position: 0% 0%;
-    }
-} */
-
-.crabpot-tag{
-    background-color: var(--crabpot-tag);
-}
-
-.other-tag{
-    background-color: var(--other-tag);
+#cardList #trackerError{
+    align-self: center;
+    justify-self: center;
+    margin-bottom: 20px;
+    max-width: 65ch;
 }
 
 .fish-card{
@@ -557,12 +527,93 @@ input[type^=radio]{
     border-right: 1px solid var(--body-border);
 }
 
+.tag{
+    font-size: var(--caption-size);
+    text-transform: uppercase;
+    padding: 4px;
+    border-radius: var(--button-corner);
+    font-weight: bold;
+    place-self: center;
+    color: var(--dark-text-1);
+    margin-right: 3px;
+}
+
+.bundle-tag{
+    background-color: var(--bundle-tag);
+}
+
+.legendary-tag{
+    background-color: var(--legendary-tag);
+    /* background: linear-gradient(45deg, var(--success), var(--bundle-tag), var(--legendary-tag));
+    animation: legendary-animation 5s ease infinite;
+    background-size: 200% 200%; */
+}
+
+/* @keyframes legendary-animation{
+    0%{
+        background-position: 0% 0%;
+    }
+
+    50%{
+        background-position: 100% 100%;
+    }
+    
+    100%{
+        background-position: 0% 0%;
+    }
+} */
+
+.crabpot-tag{
+    background-color: var(--crabpot-tag);
+}
+
+.quest-tag{
+    background-color: var(--quest-tag);
+}
+
+.other-tag{
+    background-color: var(--other-tag);
+}
+
+
 .fish-popup h5{
     border-bottom: 1px solid var(--body-border);
 }
 
 .fish-popup h4 ~ p{
     font-size: var(--caption-size);
+}
+
+.fish-popup #diffP{
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    padding: 4px;
+    border-radius: var(--button-corner);
+    color: var(--dark-text-1);
+}
+
+.diff-easy{
+    background-color: var(--diff-easy);
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+.diff-medium{
+    background-color: var(--diff-medium);
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+.diff-hard{
+    background-color: var(--diff-hard);
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+.diff-legend{
+    background-color: var(--diff-legend);
+    margin-bottom: 3px;
+    display: inline-block;
 }
 
 #popupStatus{

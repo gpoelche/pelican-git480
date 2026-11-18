@@ -4,6 +4,10 @@ const fishMap = new Map(); //Map that holds all fish details from appData. Impor
 const caughtFish = []; //Array that holds all of the users' currently caught fish by ID.
 const allFishId = []; //Array that holds IDs of every fish. Used for resetting the cards shown in the DOM.
 
+//Constants that hold values related to how hard a fish is to catch. These are used to determine how a container holding this data is stylized.
+const diffColors = {easy: "diff-easy", medium: "diff-medium", hard: "diff-hard", legend: "diff-legend"};
+const diffRanges = {easy: [1, 49], medium: [50, 69], hard: [70, 100]};
+
 // SVGs that are used consistently for catch button visual status indicator. These are dynamically adjusted as the user toggles the catch status of each fish.
 const xSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#e3e3e3"><path d="M6.4,19L5,17.6L10.6,12L5,6.4L6.4,5L12,10.6L17.6,5L19,6.4L13.4,12L19,17.6L17.6,19L12,13.4L6.4,19Z"/></svg>';
 const checkSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#e3e3e3"><path d="M9.55,18l-5.7-5.7l1.43-1.42l4.28,4.28l9.18-9.18L20.15,7.4L9.55,18Z"/></svg>';
@@ -43,7 +47,6 @@ async function goFish(){
 //Function that receives a datatype to load fish cards from
 //Performs loading differently depending on the datatype received.
 function loadCards(data){
-    
     document.querySelector("#cardList").innerHTML = "";
     let temp = "";
 
@@ -70,7 +73,7 @@ function loadCards(data){
 
             //Return this message if no fish match the results from the search conditions.
             else{
-                temp += `<span>No fish match the selected criteria. Please select new search conditions!</span>`;
+                temp += `<span id="trackerError" class="error">No fish match the selected criteria. Please select new search conditions!</span>`;
             }
 
         }
@@ -83,30 +86,41 @@ function loadCards(data){
             //Loading each fish into a card on the screen
             temp += createFishCard(card.id, card);
 
-            //Mapping the indexes of the JSON to a Map, which will make searching for each fish much easier when needing to display fish cards.
+            //Perform the base declaration for all fish, doesn't include conditional fields like tags or any traits associated to tags
+            let tempFish = {
+                name: card.name, 
+                description: card.description,
+                location: card.location,
+                time: card.time, 
+                season: card.season, 
+                weather: card.weather, 
+                difficulty: card.difficulty
+            };
 
-            // Fish with tags (legendary, crabpot, other, bundle, etc.) are mapped to include their unique values.
-            // Legendary fish are checked as well since they contain unique fields from other fish with tags.
+            //If the fish has tags, add the additional traits associated with each tag.
             if(card.tags){
+                tempFish.tags = card.tags;
+
+                //Lgendary info
                 if(card.tags.includes("legendary")){
-                    fishMap.set(card.id, {name: card.name, description: card.description, location: card.location, time: card.time, season: card.season, weather: card.weather, difficulty: card.difficulty, tags: card.tags, legendNote: card.legendNote, requiredLevel: card.requiredLevel});
+                    tempFish.legendNote = card.legendNote;
+                    tempFish.requiredLevel = card.requiredLevel;
                 }
 
-                else if(card.tags.includes("bundle")){
-                    fishMap.set(card.id, {name: card.name, description: card.description, location: card.location, time: card.time, season: card.season, weather: card.weather, difficulty: card.difficulty, tags: card.tags, bundles: card.bundles}); 
+                //Bundle info
+                if(card.tags.includes("bundle")){
+                    tempFish.bundles = card.bundles;
                 }
 
-                else{
-                    fishMap.set(card.id, {name: card.name, description: card.description, location: card.location, time: card.time, season: card.season, weather: card.weather, difficulty: card.difficulty, tags: card.tags});
+                //Quest info
+                if(card.tags.includes("quest")){
+                    tempFish.quests = card.quests;
                 }
-
             }
 
-            else{
-                fishMap.set(card.id, {name: card.name, description: card.description, location: card.location, time: card.time, season: card.season, weather: card.weather, difficulty: card.difficulty});
-            }
-
+            //Add the fish into the array holding all fishID as well as setting the fish value to the fishMap to perform information retrieval
             allFishId.push(card.id);
+            fishMap.set(card.id, tempFish);
         }
     }
 
@@ -158,6 +172,11 @@ function showFishDetails(e){
         document.querySelector("#bundlesDiv").classList.add("hidden");
         document.querySelector("#bundleList").innerHTML = "";
     }
+
+    if(!document.querySelector("#questsDiv").classList.contains("hidden")){
+        document.querySelector("#questsDiv").classList.add("hidden");
+        document.querySelector("#questList").innerHTML = "";
+    }
     
     //Uses the button to find the card the button was pressed in. Then uses the custom dataset attribute containing the fish ID for the map search.
     let id = Number(e.target.closest(".fish-card").dataset.fishId);
@@ -172,6 +191,37 @@ function showFishDetails(e){
     popupWindow.querySelector("img").src = `assets/images/fish/${id}.png`;
     popupWindow.querySelector("h4").textContent = targetFish.name;
     popupWindow.querySelector("p").textContent = targetFish.description;
+
+    let diffString = parseInt(targetFish.difficulty, 10);
+    let behavString = targetFish.difficulty.replaceAll(`${diffString} `, "");
+    popupWindow.querySelector("div p:last-of-type").className = "";
+
+    //Only show difficulty and behavior if the fish has a difficulty rating
+    if(diffString > 0){
+        popupWindow.querySelector("#difficulty").textContent = diffString + " - ";
+        popupWindow.querySelector("#behavior").textContent = behavString;
+
+        if(diffString >= diffRanges.easy[0] && diffString <= diffRanges.easy[1]){
+            popupWindow.querySelector("div p:last-of-type").classList.add(diffColors.easy);
+        }
+
+        else if(diffString >= diffRanges.medium[0] && diffString <= diffRanges.medium[1]){
+            popupWindow.querySelector("div p:last-of-type").classList.add(diffColors.medium);
+        }
+
+        else if(diffString >= diffRanges.hard[0] && diffString <= diffRanges.hard[1]){
+            popupWindow.querySelector("div p:last-of-type").classList.add(diffColors.hard);
+        }
+
+        else{
+            popupWindow.querySelector("div p:last-of-type").classList.add(diffColors.legend);
+        }
+    }
+
+    else{
+        popupWindow.querySelector("#difficulty").textContent = "";
+        popupWindow.querySelector("#behavior").textContent = "";
+    }
 
     popupWindow.querySelector("#locationList").innerHTML = "";
     for(let loc of targetFish.location){
@@ -238,6 +288,16 @@ function showFishDetails(e){
                 let temp = document.createElement("li");
                 temp.textContent = bundle + " Bundle";
                 popupWindow.querySelector("#bundleList").appendChild(temp);
+            }
+        }
+
+        if(targetFish.tags.includes("quest")){
+            document.querySelector("#questsDiv").classList.remove("hidden");
+
+            for(let quest of targetFish.quests){
+                let temp = document.createElement("li");
+                temp.textContent = quest;
+                popupWindow.querySelector("#questList").appendChild(temp);
             }
         }
     }
