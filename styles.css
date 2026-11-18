@@ -67,7 +67,7 @@
     --was-caught-2: oklch(0.7171 0.1923 144.6);
     --was-caught-gradient: linear-gradient(0deg, var(--was-caught-1), var(--was-caught-2));
 
-    --body-max-width: 80ch;
+    --body-max-width: 75ch;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -205,6 +205,10 @@ header a{
 }
 
 /* UNIVERSAL - SVG BUTTON STYLES */
+button svg{
+    pointer-events: none;
+}
+
 button:has(svg){
     display: flex;
     align-items: center;
@@ -298,9 +302,12 @@ footer{
 }
 
 /* INDEX - GENERAL */
-.index-body section:not(.index-body section:first-of-type){
-    padding: 40px 0px;
-}
+/* .index-body section:not(.index-body section:first-of-type){
+} */
+
+/* .index-body p{
+    max-width: var(--body-max-width);
+} */
 
 .index-body h2{
     margin-bottom: 15px;
@@ -314,11 +321,28 @@ footer{
 /* INDEX - ONEPLACE */
 #onePlace{
     background-color: var(--body-bg-2);
+    display: flex;
+    flex-direction: column;
+    padding: 100px 0;
+}
+
+#onePlace p{
+    margin-bottom: 20px;
+}
+
+#onePlace video{
+    border: 1px solid var(--body-border);
+    border-radius: var(--button-corner);
+    max-width: min(90%, 800px);
+    height: 100%;
+    display: block;
+    margin: 15px auto 0;
 }
 
 /* INDEX - FUTURE */
 #future{
     background-color: var(--body-bg-3);
+    padding: 100px 0;
 }
 
 #futureCards{
@@ -361,7 +385,19 @@ footer{
 
 /* INDEX - IMPROVE */
 #improve{
-    background-color: var(--body-bg-2);
+    background: url(assets/images/NightMarket.png), var(--menu-blur);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-position: 50% 40%;
+    padding: 200px 0;
+}
+
+#improve h2, #improve p{
+    color: var(--dark-text-1);
+}
+
+#improve p{
+    max-width: 65ch;
 }
 
 #improve div{
@@ -892,11 +928,11 @@ nav .menu-close:hover{
         flex-direction: row;
         justify-content: space-around;
     }
-
 }
 
 /* TRACKER - LARGER SCREENS */
 @media (min-width: 1300px){
+    /* TRACKER - LARGER SCREENS */
     #filtersWrapper{
         position: static;
         width: auto;
@@ -966,5 +1002,17 @@ nav .menu-close:hover{
         padding-right: 20px;
         padding-top: 20px;
         padding-bottom: 20px;
+    }
+}
+
+@media (min-width: 1500px){
+        /* INDEX - LARGER SCREENS */
+    #onePlace{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #onePlace video{
+        margin-right: 50px;
     }
 }

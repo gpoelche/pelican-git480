@@ -28,8 +28,6 @@ async function goFish(){
         for(let f of temp){
             caughtFish.push(f);
         }
-
-        console.log(caughtFish);
     }
 
     //Call loadCards with 
@@ -143,11 +141,11 @@ function createFishCard(id, fish){
     let wasCaught = caughtFish.includes(id);
 
     // Setting a max length for the fish description shown on the fish-card preview. This is to keep global sizing expectations to create repeatable card sizings and stylings.
-    let maxDesc = 50;
+    let maxDesc = 35;
     let desc = fish.description;
 
     if(desc.length > maxDesc){
-        desc = desc.slice(0,37).trim() + '...';
+        desc = desc.slice(0,maxDesc - 3).trim() + '...';
     }
 
     return `<section data-fish-id="${id}" class="fish-card${wasCaught ? " was-caught" : ""}"><div class="card-details"><img src="./assets/images/fish/${id}.png"><div><h3>${fish.name}</h3><p>${desc}</p></div></div><button class="catch-button">${wasCaught ? xSvg : checkSvg}</button></section>`;
