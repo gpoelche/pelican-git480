@@ -189,6 +189,9 @@ header{
 header a{
     text-decoration: none;
     color: var(--body-text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 #headerLogo{
@@ -230,7 +233,7 @@ button:has(svg){
     background: var(--body-bg-2);
 }
 
-.theme-toggle svg, .menu-toggle svg, .menu-close svg, .popup-close svg, .catch-button svg{
+.theme-toggle svg, .menu-toggle svg, .menu-close svg, .popup-close svg, .catch-button svg, header a svg{
     fill: var(--body-text-color);
 }
 
@@ -753,11 +756,12 @@ input[type^=radio]{
 /* MOBILE STYLES BEGINS */
 
 /* HEADER - MOBILE */
-.index-body header, .tracker-body header, .login-body header, .signup-body header{
+header{
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 15px 0;
+    justify-content: space-between;
 }
 
 .index-body #navButtons, .tracker-body #navButtons, .login-body #navButtons, .signup-body #navButtons{
@@ -878,9 +882,14 @@ nav .menu-close:hover{
     
     /* HEADER */
     header{
-        padding-top: 25px;
-        padding-bottom: 25px;
+        /* padding-top: 25px;
+        padding-bottom: 25px; */
+        padding: 0;
         align-items: center;
+    }
+
+    .login-body header, .signup-body header{
+        height: 74px;
     }
 
     /* HEADER - NAVIGATION MENU */
@@ -896,7 +905,6 @@ nav .menu-close:hover{
         z-index: auto;
         align-content: normal;
         background: none;
-        margin-right: 50px;
         border-right: none;
     }
 
@@ -904,7 +912,7 @@ nav .menu-close:hover{
         justify-self: normal;
         display: flex;
         flex-direction: row;
-        gap: 40px;
+        gap: 0px;
         align-self: center;
         position: static;
         top: auto;
@@ -913,13 +921,18 @@ nav .menu-close:hover{
     .tracker-body nav li, .index-body nav li{
         margin-bottom: 0;
         width: auto;
-        padding: 0;
+        padding: 25px 20px;
         text-align: left;
         text-transform: none;
         border-bottom: none;
         background: none;
+        transition: background-color 0.1s ease;
     }
 
+    nav li:hover{
+        background-color: var(--body-bg-2);
+        transition: background-color 0.1s ease;
+    }
 
 }
 
