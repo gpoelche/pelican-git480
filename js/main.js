@@ -351,13 +351,14 @@ function toggleCatchStatus(e){
     document.querySelector("#fishCount").textContent = caughtFish.length;
 
     let temp = caughtFish.toString();
-
     localStorage.setItem("caughtFish", temp);
-    console.log(localStorage.getItem("caughtFish"));
+
+    // Calling this function here allows for fish to be removed from the DOM if their toggled status would remove them in a filtered search.
+    // Ex: Making a fish caught while showing uncaught fish should remove the clicked fish. Calling this method here lets this happen.
+    filteredSearch();
 }
 
 //Function that updates DOM to show filtered fish in the card pool.
-//Updates on change to the form.
 function filteredSearch(e){
     //Start by collecting the values in the filter section fields
     //Values used to query the fish that meet the selected criteria
@@ -365,6 +366,8 @@ function filteredSearch(e){
     let locationFilter = document.querySelector('select[name="location"]').value;
     let seasonFilter = document.querySelector('select[name="season"]').value;
     let weatherFilter = document.querySelector('select[name="weather"]').value;
+    let filteredTags = document.querySelectorAll('.checkbox-div input[type^="checkbox"]:checked');
+    let tagFilter = [];
 
     //Converting the fishMap to an array so that filter functions can be used.
     //This makes searching based on certain conditions much easier.
@@ -427,6 +430,21 @@ function filteredSearch(e){
     //Filters for selected weather.
     if(weatherFilter != "all"){
         filterArray = filterArray.filter(([id, fish]) => fish.weather.includes(weatherFilter));
+    }
+
+    // Filter #5 - Tag(s)
+    // Starts by checking to see if any of the checkboxes are selected, then removes fish without filters if so.
+    // Then, check to see if each fish contains at least one tag that matches the set of passed tags. Filter out those who don't contain at least one requested tag.
+    if(filteredTags.length > 0){
+        for(let tag of filteredTags){
+            tagFilter.push(tag.value);
+
+            // Filter fish from the array that don't have tags if the user is filtering by tags.
+            filterArray = filterArray.filter(([id, fish]) => fish.tags);
+        }
+
+        // Perform a filter in which fish whose tags have some / at least one of the requested filtered tags are kept in the array.
+        filterArray = filterArray.filter(([id, fish]) => fish.tags.some(tag => tagFilter.includes(tag)));
     }
 
     //Calls loadCards to reload the DOM with fish cards matching the filtered array ID values

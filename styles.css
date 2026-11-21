@@ -436,6 +436,10 @@ footer{
     margin-bottom: 20px;
 }
 
+#filtersWrapper legend:last-of-type{
+    margin-bottom: 5px;
+}
+
 .dropdown-div{
     display: flex;
     flex-direction: column;
@@ -443,7 +447,7 @@ footer{
     margin-bottom: 10px;
 }
 
-.dropdown-div label, #filtersWrapper div:first-of-type legend{
+.dropdown-div label, #filtersWrapper div:first-of-type legend, #filtersWrapper div:last-of-type legend{
     font-weight: bold;
     font-size: 1.15rem;
 }
@@ -476,6 +480,10 @@ input[type^=radio]{
 
 #openFilters:hover, #resetButton:hover{
     background: var(--body-gradient-hover);
+}
+
+fieldset:first-of-type{
+    margin-bottom: 20px;
 }
 
 /* TRACKER - FISH CARD LIST STYLES */
@@ -877,6 +885,14 @@ nav .menu-close:hover{
     gap: 10px;
 }
 
+.checkbox-div{
+    margin-bottom: 10px;
+}
+
+.checkbox-div input{
+    margin-right: 10px;
+}
+
 /* TABLET (min-width: 768px) */
 @media (min-width: 768px) {
     
@@ -1006,7 +1022,7 @@ nav .menu-close:hover{
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 40px;
+        padding-top: 20px;
     }
 
     #cardList{
